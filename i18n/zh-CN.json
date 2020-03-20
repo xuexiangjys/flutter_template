@@ -23,5 +23,10 @@
     "qqgroup": "QQ群",
     "appupdate": "版本更新",
     "sponsor": "赞助",
-    "sponsorDescription": "你的打赏是我维护的动力，我将会列出所有打赏人员的清单在Github上作为凭证."
+    "sponsorDescription": "你的打赏是我维护的动力，我将会列出所有打赏人员的清单在Github上作为凭证.",
+    "home": "主页",
+    "category": "分类",
+    "activity": "活动",
+    "message": "消息",
+    "profile": "我的"
 }

@@ -9,7 +9,7 @@
     "passwordHint": "Please enter your password",
     "passwordError": "Password cannot be less than 6 digits!",
     "loginSuccess": "Login Success",
-    "register": "Register", 
+    "register": "Register",
     "repeatPassword": "Repeat Password",
     "registerSuccess": "Register Success",
     "theme": "Theme",
@@ -23,5 +23,11 @@
     "qqgroup": "QQ Group",
     "appupdate": "AppUpdate",
     "sponsor": "Sponsor",
-    "sponsorDescription": "Your reward is the motivation for me to maintain. I will make a list of all reward staff on GitHub as a voucher."
+    "sponsorDescription": "Your reward is the motivation for me to maintain. I will make a list of all reward staff on GitHub as a voucher.",
+    "home": "Home",
+    "category": "Category",
+    "activity": "Activity",
+    "message": "Message",
+    "profile": "Profile"
+
 }

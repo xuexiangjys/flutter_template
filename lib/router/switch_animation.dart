@@ -5,10 +5,11 @@ import 'route_map.dart';
 class SlidePageRoute extends PageRouteBuilder {
   final String routeName;
   final Widget widget;
+  final int duration;
 
-  SlidePageRoute({this.routeName, this.widget})
+  SlidePageRoute({this.routeName, this.widget, this.duration = 800})
       : super(
-            transitionDuration: const Duration(milliseconds: 500),
+            transitionDuration: Duration(milliseconds: duration),
             pageBuilder: (BuildContext context, Animation<double> animation1,
                 Animation<double> animation2) {
               return widget != null ? widget : RouteMap.routes[routeName](context);

@@ -1,6 +1,6 @@
 # flutter_template
 
-Flutter Template Project
+Flutter空壳模版工程，已实现国际化、主题换肤、登录注册等功能.
 
 ## 关于我
 

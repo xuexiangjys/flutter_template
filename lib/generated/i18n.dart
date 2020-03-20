@@ -82,6 +82,16 @@ class I18n implements WidgetsLocalizations {
   String get sponsor => "Sponsor";
   /// "Your reward is the motivation for me to maintain. I will make a list of all reward staff on GitHub as a voucher."
   String get sponsorDescription => "Your reward is the motivation for me to maintain. I will make a list of all reward staff on GitHub as a voucher.";
+  /// "Home"
+  String get home => "Home";
+  /// "Category"
+  String get category => "Category";
+  /// "Activity"
+  String get activity => "Activity";
+  /// "Message"
+  String get message => "Message";
+  /// "Profile"
+  String get profile => "Profile";
 }
 
 class _I18n_en_US extends I18n {
@@ -169,6 +179,21 @@ class _I18n_zh_CN extends I18n {
   /// "你的打赏是我维护的动力，我将会列出所有打赏人员的清单在Github上作为凭证."
   @override
   String get sponsorDescription => "你的打赏是我维护的动力，我将会列出所有打赏人员的清单在Github上作为凭证.";
+  /// "主页"
+  @override
+  String get home => "主页";
+  /// "分类"
+  @override
+  String get category => "分类";
+  /// "活动"
+  @override
+  String get activity => "活动";
+  /// "消息"
+  @override
+  String get message => "消息";
+  /// "我的"
+  @override
+  String get profile => "我的";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
