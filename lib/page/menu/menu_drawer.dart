@@ -11,8 +11,8 @@ import 'language.dart';
 import 'sponsor.dart';
 import 'theme_color.dart';
 
-class HomeDrawer extends StatelessWidget {
-  const HomeDrawer({
+class MenuDrawer extends StatelessWidget {
+  const MenuDrawer({
     Key key,
   }) : super(key: key);
 

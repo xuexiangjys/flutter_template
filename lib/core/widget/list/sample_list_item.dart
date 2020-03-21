@@ -18,6 +18,7 @@ class SampleListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return direction == Axis.vertical
         ? Card(
+            margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Container(
               child: Row(
                 children: <Widget>[
@@ -102,6 +103,7 @@ class SampleListItem extends StatelessWidget {
             ),
           )
         : Card(
+            margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             child: Container(
               alignment: Alignment.center,
               child: Column(

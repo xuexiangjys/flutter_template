@@ -2,6 +2,7 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:share/share.dart';
 
 class WebViewPage extends StatefulWidget {
   final String url;
@@ -12,27 +13,27 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPageState extends State<WebViewPage> {
-
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WebviewScaffold(
+      url: widget.url,
+      withLocalStorage: true,
+      withJavascript: true,
+      hidden: true,
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title, style: TextStyle(fontSize: 15)),
+        titleSpacing: 0,
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.share),
+              onPressed: () {
+                Share.share(widget.url);
+              }),
+        ],
       ),
-      body: getWebView(widget.url),
     );
-  }
-
-  Widget getWebView(String url) {
-    return WebviewScaffold(
-        url: widget.url,
-        withZoom: false,
-        withLocalStorage: true,
-        withJavascript: true,
-        hidden: true,
-      );
   }
 }

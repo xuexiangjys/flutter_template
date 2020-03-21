@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/core/utils/click.dart';
 import 'package:flutter_template/core/utils/xupdate.dart';
 import 'package:flutter_template/generated/i18n.dart';
+import 'package:flutter_template/page/home/tab_home.dart';
 import 'package:flutter_template/router/router.dart';
 
-import 'home_drawer.dart';
+import 'menu/menu_drawer.dart';
 
 class MainHomePage extends StatefulWidget {
   MainHomePage({Key key}) : super(key: key);
@@ -27,6 +28,14 @@ class _MainHomePageState extends State<MainHomePage> {
         BottomNavigationBarItem(
             title: Text(I18n.of(context).profile), icon: Icon(Icons.person)),
       ];
+
+  List<Widget> getTabWidget(BuildContext context) => [
+    TabHomePage(),
+    Center(child: Text(I18n.of(context).category)),
+    Center(child: Text(I18n.of(context).activity)),
+    Center(child: Text(I18n.of(context).message)),
+    Center(child: Text(I18n.of(context).profile)),
+  ];
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -75,12 +84,10 @@ class _MainHomePageState extends State<MainHomePage> {
                   })
             ],
           ),
-          drawer: HomeDrawer(),
+          drawer: MenuDrawer(),
           body: IndexedStack(
             index: _currentIndex,
-            children: tabs.map((BottomNavigationBarItem tab) {
-              return Center(child: tab.title);
-            }).toList(),
+            children: getTabWidget(context),
           ),
           bottomNavigationBar: BottomNavigationBar(
             items: tabs,

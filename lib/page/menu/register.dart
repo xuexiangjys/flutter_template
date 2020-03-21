@@ -4,76 +4,53 @@ import 'package:flutter_template/core/http/http.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/widget/loading_dialog.dart';
 import 'package:flutter_template/generated/i18n.dart';
-import 'package:flutter_template/page/home/register.dart';
-import 'package:flutter_template/router/router.dart';
-import 'package:flutter_template/utils/provider.dart';
-import 'package:provider/provider.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   // 响应空白处的焦点的Node
   bool _isShowPassWord = false;
+  bool _isShowPassWordRepeat = false;
   FocusNode blankNode = FocusNode();
   TextEditingController _unameController = TextEditingController();
   TextEditingController _pwdController = TextEditingController();
+  TextEditingController _pwdRepeatController = TextEditingController();
   GlobalKey _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        child: Scaffold(
-          appBar: AppBar(
-            // leading: _leading(context),
-            title: Text(I18n.of(context).login),
-            actions: <Widget>[
-              FlatButton(
-                child: Text(I18n.of(context).register),
-                textColor: Colors.white,
-                onPressed: () {
-                  XRouter.gotoWidget(context, RegisterPage());
-                },
-              )
-            ],
-          ),
-          body: GestureDetector(
-            onTap: () {
-              // 点击空白页面关闭键盘
-              closeKeyboard(context);
-            },
-            child: SingleChildScrollView(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
-              child: buildForm(context),
-            ),
-          ),
+    return Scaffold(
+      appBar: AppBar(title: Text(I18n.of(context).register)),
+      body: GestureDetector(
+        onTap: () {
+          // 点击空白页面关闭键盘
+          closeKeyboard(context);
+        },
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
+          child: buildForm(context),
         ),
-        onWillPop: () async {
-          return Future.value(false);
-        });
+      ),
+    );
   }
 
   //构建表单
   Widget buildForm(BuildContext context) {
     return Form(
       key: _formKey, //设置globalKey，用于后面获取FormState
-      autovalidate: true, //开启自动校验
+      autovalidate: false,
       child: Column(
         children: <Widget>[
-          Center(
-              heightFactor: 1.5,
-              child: FlutterLogo(
-                size: 64,
-              )),
           TextFormField(
               autofocus: false,
               controller: _unameController,
               decoration: InputDecoration(
                   labelText: I18n.of(context).loginName,
                   hintText: I18n.of(context).loginNameHint,
+                  hintStyle: TextStyle(fontSize: 12),
                   icon: Icon(Icons.person)),
               //校验用户名
               validator: (v) {
@@ -86,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
               decoration: InputDecoration(
                   labelText: I18n.of(context).password,
                   hintText: I18n.of(context).passwordHint,
+                  hintStyle: TextStyle(fontSize: 12),
                   icon: Icon(Icons.lock),
                   suffixIcon: IconButton(
                       icon: Icon(
@@ -102,6 +80,30 @@ class _LoginPageState extends State<LoginPage> {
                     ? null
                     : I18n.of(context).passwordError;
               }),
+
+          TextFormField(
+              controller: _pwdRepeatController,
+              decoration: InputDecoration(
+                  labelText: I18n.of(context).repeatPassword,
+                  hintText: I18n.of(context).passwordHint,
+                  hintStyle: TextStyle(fontSize: 12),
+                  icon: Icon(Icons.lock),
+                  suffixIcon: IconButton(
+                      icon: Icon(
+                        _isShowPassWordRepeat
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: Colors.black,
+                      ),
+                      onPressed: showPassWordRepeat)),
+              obscureText: !_isShowPassWordRepeat,
+              //校验密码
+              validator: (v) {
+                return v.trim().length >= 6
+                    ? null
+                    : I18n.of(context).passwordError;
+              }),
+
           // 登录按钮
           Padding(
             padding: const EdgeInsets.only(top: 28.0),
@@ -110,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                 Expanded(child: Builder(builder: (context) {
                   return RaisedButton(
                     padding: EdgeInsets.all(15.0),
-                    child: Text(I18n.of(context).login),
+                    child: Text(I18n.of(context).register),
                     color: Theme.of(context).primaryColor,
                     textColor: Colors.white,
                     onPressed: () {
@@ -136,6 +138,13 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  ///点击控制密码是否显示
+  void showPassWordRepeat() {
+    setState(() {
+      _isShowPassWordRepeat = !_isShowPassWordRepeat;
+    });
+  }
+
   void closeKeyboard(BuildContext context) {
     FocusScope.of(context).requestFocus(blankNode);
   }
@@ -155,17 +164,15 @@ class _LoginPageState extends State<LoginPage> {
           );
         });
 
-    UserProfile userProfile = Provider.of<UserProfile>(context, listen: false);
-
-    XHttp.post("/user/login", {
+    XHttp.post("/user/register", {
       "username": _unameController.text,
-      "password": _pwdController.text
+      "password": _pwdController.text,
+      "repassword": _pwdRepeatController.text
     }).then((response) {
       Navigator.pop(context);
       if (response['errorCode'] == 0) {
-        userProfile.nickName = response['data']['nickname'];
-        ToastUtils.toast(I18n.of(context).loginSuccess);
-        Navigator.of(context).pushReplacementNamed('/home');
+        ToastUtils.toast(I18n.of(context).registerSuccess);
+        Navigator.of(context).pop();
       } else {
         ToastUtils.error(response['errorMsg']);
       }
