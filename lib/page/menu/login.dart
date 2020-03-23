@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_template/core/http/http.dart';
+import 'package:flutter_template/core/utils/privacy.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/widget/loading_dialog.dart';
 import 'package:flutter_template/generated/i18n.dart';
 import 'package:flutter_template/router/router.dart';
 import 'package:flutter_template/utils/provider.dart';
+import 'package:flutter_template/utils/sputils.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,6 +22,18 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _unameController = TextEditingController();
   TextEditingController _pwdController = TextEditingController();
   GlobalKey _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    super.initState();
+    if (!SPUtils.isAgreePrivacy()) {
+      PrivacyUtils.showPrivacyDialog(context, onAgressCallback: () {
+        Navigator.of(context).pop();
+        SPUtils.saveIsAgreePrivacy(true);
+        ToastUtils.success(I18n.of(context).agreePrivacy);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

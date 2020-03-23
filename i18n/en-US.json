@@ -28,6 +28,22 @@
     "category": "Category",
     "activity": "Activity",
     "message": "Message",
-    "profile": "Profile"
+    "profile": "Profile",
+    "reminder": "Reminder",
+    "agree": "Agree",
+    "disagree": "Disagree",
+    "lookAgain": "Look Again",
+    "stillDisagree": "Still Disagree",
+    "thinkAboutItAgain": "  Do you want to think about it again？",
+    "privacyExplainAgain": "    We attach great importance to the protection of your personal information and promise to protect and process your information in strict accordance with the 《{appName} privacy policy》. If you do not agree with the policy, we regret that we will not be able to provide you with services.",
+    "exitApp": "Exit App",
+    "privacyName": "《{appName} privacy policy》",
+    "welcome": "   Welcome to {appName}!",
+    "welcome1": "   We know the importance of personal information to you and thank you for your trust in us.",
+    "welcome2": "   In order to better protect your rights and interests and comply with the relevant regulatory requirements, we will explain to you through ",
+    "welcome3": " how we will collect, store, protect, use and provide your information to the outside world, and explain your rights.",
+    "welcome4": "   For more details, please refer to",
+    "welcome5": " the full text.",
+    "agreePrivacy": "Privacy agreement agreed!"
 
 }

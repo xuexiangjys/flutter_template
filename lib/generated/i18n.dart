@@ -92,6 +92,38 @@ class I18n implements WidgetsLocalizations {
   String get message => "Message";
   /// "Profile"
   String get profile => "Profile";
+  /// "Reminder"
+  String get reminder => "Reminder";
+  /// "Agree"
+  String get agree => "Agree";
+  /// "Disagree"
+  String get disagree => "Disagree";
+  /// "Look Again"
+  String get lookAgain => "Look Again";
+  /// "Still Disagree"
+  String get stillDisagree => "Still Disagree";
+  /// "  Do you want to think about it again？"
+  String get thinkAboutItAgain => "  Do you want to think about it again？";
+  /// "    We attach great importance to the protection of your personal information and promise to protect and process your information in strict accordance with the 《${appName} privacy policy》. If you do not agree with the policy, we regret that we will not be able to provide you with services."
+  String privacyExplainAgain(String appName) => "    We attach great importance to the protection of your personal information and promise to protect and process your information in strict accordance with the 《${appName} privacy policy》. If you do not agree with the policy, we regret that we will not be able to provide you with services.";
+  /// "Exit App"
+  String get exitApp => "Exit App";
+  /// "《${appName} privacy policy》"
+  String privacyName(String appName) => "《${appName} privacy policy》";
+  /// "   Welcome to ${appName}!"
+  String welcome(String appName) => "   Welcome to ${appName}!";
+  /// "   We know the importance of personal information to you and thank you for your trust in us."
+  String get welcome1 => "   We know the importance of personal information to you and thank you for your trust in us.";
+  /// "   In order to better protect your rights and interests and comply with the relevant regulatory requirements, we will explain to you through "
+  String get welcome2 => "   In order to better protect your rights and interests and comply with the relevant regulatory requirements, we will explain to you through ";
+  /// " how we will collect, store, protect, use and provide your information to the outside world, and explain your rights."
+  String get welcome3 => " how we will collect, store, protect, use and provide your information to the outside world, and explain your rights.";
+  /// "   For more details, please refer to"
+  String get welcome4 => "   For more details, please refer to";
+  /// " the full text."
+  String get welcome5 => " the full text.";
+  /// "Privacy agreement agreed!"
+  String get agreePrivacy => "Privacy agreement agreed!";
 }
 
 class _I18n_en_US extends I18n {
@@ -194,6 +226,54 @@ class _I18n_zh_CN extends I18n {
   /// "我的"
   @override
   String get profile => "我的";
+  /// "温馨提醒"
+  @override
+  String get reminder => "温馨提醒";
+  /// "同意"
+  @override
+  String get agree => "同意";
+  /// "不同意"
+  @override
+  String get disagree => "不同意";
+  /// "再次查看"
+  @override
+  String get lookAgain => "再次查看";
+  /// "仍不同意"
+  @override
+  String get stillDisagree => "仍不同意";
+  /// "  要不要再想想？"
+  @override
+  String get thinkAboutItAgain => "  要不要再想想？";
+  /// "    我们非常重视对你个人信息的保护，承诺严格按照《${appName}隐私权政策》保护及处理你的信息。如果你不同意该政策，很遗憾我们将无法为你提供服务。"
+  @override
+  String privacyExplainAgain(String appName) => "    我们非常重视对你个人信息的保护，承诺严格按照《${appName}隐私权政策》保护及处理你的信息。如果你不同意该政策，很遗憾我们将无法为你提供服务。";
+  /// "退出应用"
+  @override
+  String get exitApp => "退出应用";
+  /// "《${appName}隐私权政策》"
+  @override
+  String privacyName(String appName) => "《${appName}隐私权政策》";
+  /// "   欢迎来到${appName}!"
+  @override
+  String welcome(String appName) => "   欢迎来到${appName}!";
+  /// "   我们深知个人信息对你的重要性，也感谢你对我们的信任。"
+  @override
+  String get welcome1 => "   我们深知个人信息对你的重要性，也感谢你对我们的信任。";
+  /// "   为了更好地保护你的权益，同时遵守相关监管的要求，我们将通过"
+  @override
+  String get welcome2 => "   为了更好地保护你的权益，同时遵守相关监管的要求，我们将通过";
+  /// "向你说明我们会如何收集、存储、保护、使用及对外提供你的信息，并说明你享有的权利。"
+  @override
+  String get welcome3 => "向你说明我们会如何收集、存储、保护、使用及对外提供你的信息，并说明你享有的权利。";
+  /// "   更多详情，敬请查阅"
+  @override
+  String get welcome4 => "   更多详情，敬请查阅";
+  /// "全文。"
+  @override
+  String get welcome5 => "全文。";
+  /// "已同意隐私协议!"
+  @override
+  String get agreePrivacy => "已同意隐私协议!";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

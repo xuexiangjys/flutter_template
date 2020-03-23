@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/core/utils/click.dart';
+import 'package:flutter_template/core/utils/privacy.dart';
+import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/utils/xupdate.dart';
 import 'package:flutter_template/generated/i18n.dart';
 import 'package:flutter_template/page/home/tab_home.dart';
@@ -30,12 +32,12 @@ class _MainHomePageState extends State<MainHomePage> {
       ];
 
   List<Widget> getTabWidget(BuildContext context) => [
-    TabHomePage(),
-    Center(child: Text(I18n.of(context).category)),
-    Center(child: Text(I18n.of(context).activity)),
-    Center(child: Text(I18n.of(context).message)),
-    Center(child: Text(I18n.of(context).profile)),
-  ];
+        TabHomePage(),
+        Center(child: Text(I18n.of(context).category)),
+        Center(child: Text(I18n.of(context).activity)),
+        Center(child: Text(I18n.of(context).message)),
+        Center(child: Text(I18n.of(context).profile)),
+      ];
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -69,6 +71,15 @@ class _MainHomePageState extends State<MainHomePage> {
           appBar: AppBar(
             title: tabs[_currentIndex].title,
             actions: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.security),
+                  onPressed: () {
+                    PrivacyUtils.showPrivacyDialog(context,
+                        onAgressCallback: () {
+                      Navigator.of(context).pop();
+                      ToastUtils.success(I18n.of(context).agreePrivacy);
+                    });
+                  }),
               PopupMenuButton<String>(
                   itemBuilder: (BuildContext context) =>
                       <PopupMenuItem<String>>[

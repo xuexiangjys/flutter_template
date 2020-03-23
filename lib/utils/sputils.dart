@@ -43,4 +43,16 @@ class SPUtils {
     return _spf.getString('key_nickname');
   }
 
+  ///是否同意隐私协议
+  static Future<bool> saveIsAgreePrivacy(bool isAgree) {
+    return _spf.setBool('key_agree_privacy', isAgree);
+  }
+
+  static bool isAgreePrivacy() {
+    if (!_spf.containsKey('key_agree_privacy')) {
+      return false;
+    }
+    return _spf.getBool('key_agree_privacy');
+  }
+
 }
