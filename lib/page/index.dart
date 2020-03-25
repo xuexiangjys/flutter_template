@@ -6,6 +6,8 @@ import 'package:flutter_template/core/utils/xupdate.dart';
 import 'package:flutter_template/generated/i18n.dart';
 import 'package:flutter_template/page/home/tab_home.dart';
 import 'package:flutter_template/router/router.dart';
+import 'package:flutter_template/utils/provider.dart';
+import 'package:provider/provider.dart';
 
 import 'menu/menu_drawer.dart';
 
@@ -41,16 +43,6 @@ class _MainHomePageState extends State<MainHomePage> {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  int _currentIndex = 0;
-
-  void _onItemTapped(int index) {
-    if (mounted) {
-      setState(() {
-        _currentIndex = index;
-      });
-    }
-  }
-
   @override
   void initState() {
     super.initState();
@@ -65,53 +57,85 @@ class _MainHomePageState extends State<MainHomePage> {
   @override
   Widget build(BuildContext context) {
     var tabs = getTabs(context);
-    return WillPopScope(
-        child: Scaffold(
-          key: _scaffoldKey,
-          appBar: AppBar(
-            title: tabs[_currentIndex].title,
-            actions: <Widget>[
-              IconButton(
-                  icon: Icon(Icons.security),
-                  onPressed: () {
-                    PrivacyUtils.showPrivacyDialog(context,
-                        onAgressCallback: () {
-                      Navigator.of(context).pop();
-                      ToastUtils.success(I18n.of(context).agreePrivacy);
-                    });
-                  }),
-              PopupMenuButton<String>(
-                  itemBuilder: (BuildContext context) =>
-                      <PopupMenuItem<String>>[
-                        PopupMenuItem<String>(
+    return Consumer(
+        builder: (BuildContext context, AppStatus status, Widget child) {
+      return WillPopScope(
+          child: Scaffold(
+            key: _scaffoldKey,
+            appBar: AppBar(
+              title: tabs[status.tabIndex].title,
+              actions: <Widget>[
+                IconButton(
+                    icon: Icon(Icons.security),
+                    onPressed: () {
+                      PrivacyUtils.showPrivacyDialog(context,
+                          onAgressCallback: () {
+                        Navigator.of(context).pop();
+                        ToastUtils.success(I18n.of(context).agreePrivacy);
+                      });
+                    }),
+                PopupMenuButton<String>(
+                    itemBuilder: (BuildContext context) =>
+                        <PopupMenuEntry<String>>[
+                          PopupMenuItem<String>(
                             value: "sponsor",
-                            child: Text(I18n.of(context).sponsor)),
-                        PopupMenuItem<String>(
+                            child: ListTile(
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 10),
+                              leading: Icon(
+                                Icons.attach_money,
+                              ),
+                              title: Text(I18n.of(context).sponsor),
+                            ),
+                          ),
+                          PopupMenuItem<String>(
+                            value: "settings",
+                            child: ListTile(
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 10),
+                              leading: Icon(
+                                Icons.settings,
+                              ),
+                              title: Text(I18n.of(context).settings),
+                            ),
+                          ),
+                          PopupMenuItem<String>(
                             value: "about",
-                            child: Text(I18n.of(context).about)),
-                      ],
-                  onSelected: (String action) {
-                    XRouter.goto(context, '/$action');
-                  })
-            ],
+                            child: ListTile(
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 10),
+                              leading: Icon(
+                                Icons.error_outline,
+                              ),
+                              title: Text(I18n.of(context).about),
+                            ),
+                          ),
+                        ],
+                    onSelected: (String action) {
+                      XRouter.goto(context, '/$action');
+                    })
+              ],
+            ),
+            drawer: MenuDrawer(),
+            body: IndexedStack(
+              index: status.tabIndex,
+              children: getTabWidget(context),
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              items: tabs,
+              //高亮  被点击高亮
+              currentIndex: status.tabIndex,
+              //修改 页面
+              onTap: (index) {
+                status.tabIndex = index;
+              },
+              type: BottomNavigationBarType.fixed,
+              fixedColor: Theme.of(context).primaryColor,
+            ),
           ),
-          drawer: MenuDrawer(),
-          body: IndexedStack(
-            index: _currentIndex,
-            children: getTabWidget(context),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            items: tabs,
-            //高亮  被点击高亮
-            currentIndex: _currentIndex,
-            //修改 页面
-            onTap: _onItemTapped,
-            type: BottomNavigationBarType.fixed,
-            fixedColor: Theme.of(context).primaryColor,
-          ),
-        ),
-        //监听导航栏返回,类似onKeyEvent
-        onWillPop: () =>
-            ClickUtils.exitBy2Click(status: _scaffoldKey.currentState));
+          //监听导航栏返回,类似onKeyEvent
+          onWillPop: () =>
+              ClickUtils.exitBy2Click(status: _scaffoldKey.currentState));
+    });
   }
 }

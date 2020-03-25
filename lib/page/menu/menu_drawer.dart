@@ -7,9 +7,8 @@ import 'package:flutter_template/utils/provider.dart';
 import 'package:provider/provider.dart';
 
 import 'about.dart';
-import 'language.dart';
+import 'settings.dart';
 import 'sponsor.dart';
-import 'theme_color.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({
@@ -18,9 +17,10 @@ class MenuDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<UserProfile>(
-        builder: (BuildContext context, UserProfile value, Widget child) {
+    return Consumer2<UserProfile, AppStatus>(builder: (BuildContext context,
+        UserProfile value, AppStatus status, Widget child) {
       return Drawer(
+          child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             GestureDetector(
@@ -64,25 +64,66 @@ class MenuDrawer extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(), //禁用滑动事件
                 scrollDirection: Axis.vertical, // 水平listView
                 children: <Widget>[
+                  //首页
                   ListTile(
-                    leading: Icon(Icons.color_lens),
-                    title: Text(I18n.of(context).theme),
+                    leading: Icon(Icons.home),
+                    title: Text(I18n.of(context).home),
                     onTap: () {
-                      XRouter.gotoWidget(context, ThemeColorPage());
+                      status.tabIndex = TAB_HOME_INDEX;
+                      Navigator.pop(context);
                     },
+                    selected: status.tabIndex == TAB_HOME_INDEX,
                   ),
                   ListTile(
-                    leading: Icon(Icons.language),
-                    title: Text(I18n.of(context).language),
+                    leading: Icon(Icons.list),
+                    title: Text(I18n.of(context).category),
                     onTap: () {
-                      XRouter.gotoWidget(context, LanguagePage());
+                      status.tabIndex = TAB_CATEGORY_INDEX;
+                      Navigator.pop(context);
                     },
+                    selected: status.tabIndex == TAB_CATEGORY_INDEX,
                   ),
+                  ListTile(
+                    leading: Icon(Icons.local_activity),
+                    title: Text(I18n.of(context).activity),
+                    onTap: () {
+                      status.tabIndex = TAB_ACTIVITY_INDEX;
+                      Navigator.pop(context);
+                    },
+                    selected: status.tabIndex == TAB_ACTIVITY_INDEX,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.notifications),
+                    title: Text(I18n.of(context).message),
+                    onTap: () {
+                      status.tabIndex = TAB_MESSAGE_INDEX;
+                      Navigator.pop(context);
+                    },
+                    selected: status.tabIndex == TAB_MESSAGE_INDEX,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.person),
+                    title: Text(I18n.of(context).profile),
+                    onTap: () {
+                      status.tabIndex = TAB_PROFILE_INDEX;
+                      Navigator.pop(context);
+                    },
+                    selected: status.tabIndex == TAB_PROFILE_INDEX,
+                  ),
+                  //设置、关于、赞助
+                  Divider(height: 1.0, color: Colors.grey),
                   ListTile(
                     leading: Icon(Icons.attach_money),
                     title: Text(I18n.of(context).sponsor),
                     onTap: () {
                       XRouter.gotoWidget(context, SponsorPage());
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.settings),
+                    title: Text(I18n.of(context).settings),
+                    onTap: () {
+                      XRouter.gotoWidget(context, SettingsPage());
                     },
                   ),
                   ListTile(
@@ -92,6 +133,7 @@ class MenuDrawer extends StatelessWidget {
                       XRouter.gotoWidget(context, AboutPage());
                     },
                   ),
+                  //退出
                   Divider(height: 1.0, color: Colors.grey),
                   ListTile(
                     leading: Icon(XUIIcons.logout),
@@ -106,7 +148,7 @@ class MenuDrawer extends StatelessWidget {
             ),
           ],
         ),
-      );
+      ));
     });
   }
 }

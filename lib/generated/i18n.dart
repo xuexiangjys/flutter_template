@@ -58,6 +58,8 @@ class I18n implements WidgetsLocalizations {
   String get repeatPassword => "Repeat Password";
   /// "Register Success"
   String get registerSuccess => "Register Success";
+  /// "Settings"
+  String get settings => "Settings";
   /// "Theme"
   String get theme => "Theme";
   /// "Language"
@@ -175,6 +177,9 @@ class _I18n_zh_CN extends I18n {
   /// "注册成功"
   @override
   String get registerSuccess => "注册成功";
+  /// "设置"
+  @override
+  String get settings => "设置";
   /// "主题"
   @override
   String get theme => "主题";

@@ -16,6 +16,7 @@ class Store {
         ChangeNotifierProvider(create: (_) => AppTheme(getDefaultTheme())),
         ChangeNotifierProvider.value(value: LocaleModel(SPUtils.getLocale())),
         ChangeNotifierProvider.value(value: UserProfile(SPUtils.getNickName())),
+        ChangeNotifierProvider.value(value: AppStatus(TAB_HOME_INDEX)),
       ],
       child: child,
     );
@@ -117,3 +118,31 @@ class UserProfile with ChangeNotifier {
     notifyListeners();
   }
 }
+
+///主页
+const int TAB_HOME_INDEX = 0;
+///分类
+const int TAB_CATEGORY_INDEX = 1;
+///活动
+const int TAB_ACTIVITY_INDEX = 2;
+///消息
+const int TAB_MESSAGE_INDEX = 3;
+///我的
+const int TAB_PROFILE_INDEX = 4;
+
+///应用状态
+class AppStatus with ChangeNotifier {
+  
+  //主页tab的索引
+  int _tabIndex;
+
+  AppStatus(this._tabIndex);
+
+  int get tabIndex => _tabIndex;
+
+  set tabIndex(int index) {
+    _tabIndex = index;
+    notifyListeners();
+  }
+}
+
