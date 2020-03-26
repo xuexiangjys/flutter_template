@@ -41,6 +41,39 @@ git clone https://github.com/xuexiangjys/flutter_template.git
 
 3.使用AS或者VSCode打开项目，然后分别修改flutter、Android、ios项目的包名、应用ID以及应用名等信息。
 
+### Flutter目录修改
+
+* 修改项目根目录`pubspec.yaml`文件, 修改项目名、描述、版本等信息。
+
+![](https://github.com/xuexiangjys/Resource/blob/master/img/template/flutter_1.png)
+
+【注意】这里修改完`pubspec.yaml`中的`name`属性后，flutter项目的包名将会修改，这里我推荐大家使用全局替换的方式修改比较快。例如我想要修改`name`为`flutter_app`,在VSCode中你可以选择`lib`文件夹之后右击，选择`在文件夹中寻找`, 进行全局替换:
+
+* 修改`lib/core/http/http.dart`中的网络请求配置，包括：服务器地址、超时、拦截器等设置
+
+* 修改`lib/core/utils/privacy.dart`中隐私服务政策地址
+
+* 修改`lib/core/utils/xupdate.dart`中版本更新检查的地址
 
 
+### Android目录修改
 
+* 修改android目录下的包名。
+
+在VSCode中你可以选择`android`文件夹之后右击，选择`在文件夹中寻找`, 进行全局替换。
+
+![](https://github.com/xuexiangjys/Resource/blob/master/img/template/android_1.png)
+
+【注意】修改包名之后，记住需要将存放`MainActivity.kt`类的文件夹名也一并修改，否则将会找不到类。
+
+* 修改应用ID。修改`android/app/build.gradle`文件中的`applicationId`
+
+* 修改应用名。修改`android/app/src/main/res/values/strings.xml`文件中的`app_name`
+
+### IOS目录修改
+
+ios修改相对简单，直接使用XCode打开ios目录进行修改即可。如下图所示：
+
+![](https://github.com/xuexiangjys/Resource/blob/master/img/template/ios_1.png)
+
+![](https://github.com/xuexiangjys/Resource/blob/master/img/template/ios_2.png)
