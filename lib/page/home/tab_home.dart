@@ -40,26 +40,28 @@ class _TabHomePageState extends State<TabHomePage> {
         SliverToBoxAdapter(child: getBannerWidget()),
 
         //=====网格菜单=====//
-        SliverGrid(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            mainAxisSpacing: 0,
-            crossAxisSpacing: 10,
-          ),
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              //创建子widget
-              var action = actions[index];
-              return GridItem(
-                  title: action.title,
-                  color: action.color,
-                  onTap: () {
-                    ToastUtils.toast('点击-->${action.title}');
-                  });
-            },
-            childCount: actions.length,
-          ),
-        ),
+        SliverPadding(
+            padding: EdgeInsets.only(top: 10),
+            sliver: SliverGrid(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                mainAxisSpacing: 0,
+                crossAxisSpacing: 10,
+              ),
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  //创建子widget
+                  var action = actions[index];
+                  return GridItem(
+                      title: action.title,
+                      color: action.color,
+                      onTap: () {
+                        ToastUtils.toast('点击-->${action.title}');
+                      });
+                },
+                childCount: actions.length,
+              ),
+            )),
 
         SliverToBoxAdapter(
             child: Padding(
@@ -74,7 +76,13 @@ class _TabHomePageState extends State<TabHomePage> {
           delegate: SliverChildBuilderDelegate(
             (context, index) {
               ArticleInfo info = articles[index % 5];
-              return ArticleListItem(articleUrl: info.articleUrl, imageUrl: info.imageUrl, title: info.title, author: info.author, description: info.description, summary: info.summary);
+              return ArticleListItem(
+                  articleUrl: info.articleUrl,
+                  imageUrl: info.imageUrl,
+                  title: info.title,
+                  author: info.author,
+                  description: info.description,
+                  summary: info.summary);
             },
             childCount: _count,
           ),
