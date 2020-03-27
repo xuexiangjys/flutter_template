@@ -74,6 +74,6 @@ git clone https://github.com/xuexiangjys/flutter_template.git
 
 ios修改相对简单，直接使用XCode打开ios目录进行修改即可。如下图所示：
 
-![](https://github.com/xuexiangjys/Resource/blob/master/img/template/ios_1.png)
+![](https://github.com/xuexiangjys/Resource/blob/master/img/template/ios_1.jpeg)
 
 ![](https://github.com/xuexiangjys/Resource/blob/master/img/template/ios_2.png)
