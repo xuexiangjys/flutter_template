@@ -49,6 +49,8 @@ git clone https://github.com/xuexiangjys/flutter_template.git
 
 【注意】这里修改完`pubspec.yaml`中的`name`属性后，flutter项目的包名将会修改，这里我推荐大家使用全局替换的方式修改比较快。例如我想要修改`name`为`flutter_app`,在VSCode中你可以选择`lib`文件夹之后右击，选择`在文件夹中寻找`, 进行全局替换:
 
+![](https://github.com/xuexiangjys/Resource/blob/master/img/template/flutter_2.png)
+
 * 修改`lib/core/http/http.dart`中的网络请求配置，包括：服务器地址、超时、拦截器等设置
 
 * 修改`lib/core/utils/privacy.dart`中隐私服务政策地址
