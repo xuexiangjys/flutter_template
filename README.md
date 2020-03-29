@@ -29,7 +29,29 @@ flutter packages get
 flutter run
 ```
 
-## 使用方式
+## 项目集成介绍
+
+> 本项目精选了目前Flutter最实用的几个库，可大大提高开发的效率。
+
+* [cached_network_image (网络缓存图片)](https://pub.dev/packages/cached_network_image)
+* [dio (非常好用的网络请求库)](https://pub.dev/packages/dio)
+* [event_bus (事件工具)](https://pub.dev/packages/event_bus)
+* [fluro (页面路由神器)](https://pub.dev/packages/fluro)
+* [flutter_easyrefresh (刷新组件)](https://pub.dev/packages/flutter_easyrefresh)
+* [flutter_webview_plugin (网页加载)](https://pub.dev/packages/flutter_webview_plugin)
+* [flutter_spinkit (loading加载动画)](https://pub.dev/packages/flutter_spinkit)
+* [flutter_swiper (轮播图组件)](https://pub.dev/packages/flutter_swiper)
+* [flutter_xupdate (应用版本更新)](https://pub.dev/packages/flutter_xupdate)
+* [oktoast](https://pub.dev/packages/oktoast)
+* [path_provider (路径)](https://pub.dev/packages/path_provider)
+* [package_info (应用包信息)](https://pub.dev/packages/url_launcher)
+* [permission_handler 权限申请](https://pub.dev/packages/permission_handler)
+* [provider (非常好用的数据共享工具)](https://pub.dev/packages/provider)
+* [share (分享)](https://pub.dev/packages/share)
+* [shared_preferences](https://pub.dev/packages/shared_preferences)
+* [url_launcher (链接处理)](https://pub.dev/packages/url_launcher)
+
+## 使用指南
 
 1.克隆项目
 
