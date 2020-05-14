@@ -33,7 +33,7 @@ class GridItem extends StatelessWidget {
                 height: 40,
               ),
             ),
-            Padding(padding: const EdgeInsets.only(top: 10), child: Text(title))
+            Padding(padding: const EdgeInsets.only(top: 10), child: Text(title, style: TextStyle(fontSize: 14)))
           ]),
         ));
   }
