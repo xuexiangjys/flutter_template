@@ -23,28 +23,28 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
-  oktoast: ^2.3.1+1
-  dio: ^3.0.6
+  oktoast: ^2.3.2
+  dio: ^3.0.9
   dio_cookie_manager: ^1.0.0
   cookie_jar: ^1.0.1
-  shared_preferences: ^0.5.6
-  provider: ^4.0.1
-  flutter_easyrefresh: ^2.0.8
-  permission_handler: '^4.2.0+hotfix.3'
-  path_provider: ^1.6.0
-  fluro: ^1.4.0
-  flutter_webview_plugin: ^0.3.10+1
-  flutter_spinkit: "^4.1.1"
+  shared_preferences: ^0.5.7+2
+  provider: ^4.1.1
+  flutter_easyrefresh: ^2.1.1
+  permission_handler: ^5.0.0+hotfix.5
+  path_provider: ^1.6.8
+  fluro: ^1.6.3
+  flutter_webview_plugin: ^0.3.11
+  flutter_spinkit: ^4.1.2+1
   flutter_xupdate: ^0.0.3
-  extended_image: ^0.7.1
-  share: ^0.6.3+5
-  url_launcher: ^5.4.1
-  event_bus: ^1.1.0
+  extended_image: ^0.7.3+1
+  share: ^0.6.4+2
+  url_launcher: ^5.4.7
+  event_bus: ^1.1.1
   image_picker_saver: ^0.3.0
   date_format: ^1.0.8
-  package_info: ^0.4.0+13
+  package_info: ^0.4.0+18
   flutter_swiper: ^1.1.6
-  cached_network_image: ^2.0.0
+  cached_network_image: ^2.2.0+1
 
 dev_dependencies:
   flutter_test:

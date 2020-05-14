@@ -1,6 +1,5 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/core/utils/permission.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/utils/utils.dart';
 import 'package:flutter_template/generated/i18n.dart';
@@ -85,7 +84,7 @@ class _SponsorPageState extends State<SponsorPage> {
 
   ///保存网络图片
   void saveImage(String url) {
-    PermissionUtils.requestPermission(PermissionGroup.storage).then((value) {
+    Permission.storage.request().then((value) {
       if (PermissionStatus.granted == value) {
         saveNetworkImageToPhoto(url).then((value) {
           if (value != null && value.isNotEmpty) {
