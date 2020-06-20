@@ -33,6 +33,7 @@ flutter run
 
 > 本项目精选了目前Flutter最实用的几个库，可大大提高开发的效率。
 
+* [flutter_i18n(国际化插件)](https://marketplace.visualstudio.com/items?itemName=esskar.vscode-flutter-i18n-json)
 * [cached_network_image (网络缓存图片)](https://pub.dev/packages/cached_network_image)
 * [dio (非常好用的网络请求库)](https://pub.dev/packages/dio)
 * [event_bus (事件工具)](https://pub.dev/packages/event_bus)
