@@ -12,32 +12,32 @@ import 'package:flutter_template/router/route_map.dart';
 import 'package:flutter_template/page/index.dart';
 import 'package:flutter_template/page/menu/login.dart';
 import 'package:flutter_template/page/menu/register.dart';
+import 'package:flutter_template/page/menu/sponsor.dart';
 import 'package:flutter_template/page/menu/settings.dart';
+import 'package:flutter_template/page/menu/about.dart';
 import 'package:flutter_template/page/menu/theme_color.dart';
 import 'package:flutter_template/page/menu/language.dart';
-import 'package:flutter_template/page/menu/sponsor.dart';
-import 'package:flutter_template/page/menu/about.dart';
 
 abstract class Routes {
   static const splashPage = '/';
   static const mainHomePage = '/main-home-page';
   static const loginPage = '/login-page';
   static const registerPage = '/register-page';
-  static const settingsPage = '/settings-page';
+  static const sponsorPage = '/menu/sponsor-page';
+  static const settingsPage = '/menu/settings-page';
+  static const aboutPage = '/menu/about-page';
   static const themeColorPage = '/theme-color-page';
   static const languagePage = '/language-page';
-  static const sponsorPage = '/sponsor-page';
-  static const aboutPage = '/about-page';
   static const all = {
     splashPage,
     mainHomePage,
     loginPage,
     registerPage,
+    sponsorPage,
     settingsPage,
+    aboutPage,
     themeColorPage,
     languagePage,
-    sponsorPage,
-    aboutPage,
   };
 }
 
@@ -91,13 +91,22 @@ class RouterMap extends RouterBase {
           transitionsBuilder: getTransitions,
           transitionDuration: const Duration(milliseconds: 800),
         );
+      case Routes.sponsorPage:
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              SponsorPage(),
+          settings: settings,
+        );
       case Routes.settingsPage:
         return PageRouteBuilder<dynamic>(
           pageBuilder: (context, animation, secondaryAnimation) =>
               SettingsPage(),
           settings: settings,
-          transitionsBuilder: getTransitions,
-          transitionDuration: const Duration(milliseconds: 800),
+        );
+      case Routes.aboutPage:
+        return PageRouteBuilder<dynamic>(
+          pageBuilder: (context, animation, secondaryAnimation) => AboutPage(),
+          settings: settings,
         );
       case Routes.themeColorPage:
         return PageRouteBuilder<dynamic>(
@@ -111,21 +120,6 @@ class RouterMap extends RouterBase {
         return PageRouteBuilder<dynamic>(
           pageBuilder: (context, animation, secondaryAnimation) =>
               LanguagePage(),
-          settings: settings,
-          transitionsBuilder: getTransitions,
-          transitionDuration: const Duration(milliseconds: 800),
-        );
-      case Routes.sponsorPage:
-        return PageRouteBuilder<dynamic>(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              SponsorPage(),
-          settings: settings,
-          transitionsBuilder: getTransitions,
-          transitionDuration: const Duration(milliseconds: 800),
-        );
-      case Routes.aboutPage:
-        return PageRouteBuilder<dynamic>(
-          pageBuilder: (context, animation, secondaryAnimation) => AboutPage(),
           settings: settings,
           transitionsBuilder: getTransitions,
           transitionDuration: const Duration(milliseconds: 800),

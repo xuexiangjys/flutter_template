@@ -28,12 +28,15 @@ class $RouterMap {
   LoginPage loginPage;
   RegisterPage registerPage;
 
+  @CustomRoute(name: '/menu/sponsor-page')
+  SponsorPage sponsorPage;
+  @CustomRoute(name: '/menu/settings-page')
   SettingsPage settingsPage;
+  @CustomRoute(name: '/menu/about-page')
+  AboutPage aboutPage;
+
   ThemeColorPage themeColorPage;
   LanguagePage languagePage;
-
-  SponsorPage sponsorPage;
-  AboutPage aboutPage;
 }
 
 /// 认证处理
