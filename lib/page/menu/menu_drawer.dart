@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/utils/xuifont.dart';
 import 'package:flutter_template/generated/i18n.dart';
+import 'package:flutter_template/router/route_map.gr.dart';
 import 'package:flutter_template/router/router.dart';
 import 'package:flutter_template/utils/provider.dart';
 import 'package:provider/provider.dart';
-
-import 'about.dart';
-import 'settings.dart';
-import 'sponsor.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({
@@ -116,21 +113,21 @@ class MenuDrawer extends StatelessWidget {
                     leading: Icon(Icons.attach_money),
                     title: Text(I18n.of(context).sponsor),
                     onTap: () {
-                      XRouter.gotoWidget(context, SponsorPage());
+                      XRouter.navigator.pushNamed(Routes.sponsorPage);
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.settings),
                     title: Text(I18n.of(context).settings),
                     onTap: () {
-                      XRouter.gotoWidget(context, SettingsPage());
+                      XRouter.navigator.pushNamed(Routes.settingsPage);
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.error_outline),
                     title: Text(I18n.of(context).about),
                     onTap: () {
-                      XRouter.gotoWidget(context, AboutPage());
+                      XRouter.navigator.pushNamed(Routes.aboutPage);
                     },
                   ),
                   //退出
@@ -140,7 +137,7 @@ class MenuDrawer extends StatelessWidget {
                     title: Text(I18n.of(context).logout),
                     onTap: () {
                       value.nickName = null;
-                      Navigator.of(context).pushReplacementNamed('/login');
+                      XRouter.navigator.pushReplacementNamed(Routes.loginPage);
                     },
                   )
                 ],

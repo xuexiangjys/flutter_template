@@ -112,7 +112,7 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                         ],
                     onSelected: (String action) {
-                      XRouter.goto(context, '/$action');
+                      XRouter.navigator.pushNamed('/$action-page');
                     })
               ],
             ),

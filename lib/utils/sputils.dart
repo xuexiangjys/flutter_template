@@ -55,4 +55,9 @@ class SPUtils {
     return _spf.getBool('key_agree_privacy');
   }
 
+  ///是否已登陆
+  static bool isLogined() {
+    String nickName = getNickName();
+    return nickName != null && nickName.isNotEmpty;
+  }
 }

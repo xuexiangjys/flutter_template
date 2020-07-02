@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/utils/sputils.dart';
+import 'package:flutter_template/router/route_map.gr.dart';
+import 'package:flutter_template/router/router.dart';
 
 //类似广告启动页
 class SplashPage extends StatefulWidget {
@@ -20,8 +21,7 @@ class _SplashPageState extends State<SplashPage> {
         decoration: BoxDecoration(
           color: Colors.white,
         ),
-        child: Center(
-            child: FlutterLogo(size: 96)));
+        child: Center(child: FlutterLogo(size: 96)));
   }
 
   //倒计时
@@ -32,11 +32,6 @@ class _SplashPageState extends State<SplashPage> {
 
   //页面跳转
   void goHomePage() {
-    String nickName = SPUtils.getNickName();
-    if (nickName != null && nickName.isNotEmpty) {
-      Navigator.of(context).pushReplacementNamed('/home');
-    } else {
-      Navigator.of(context).pushReplacementNamed('/login');
-    }
+    XRouter.navigator.pushReplacementNamed(Routes.mainHomePage);
   }
 }

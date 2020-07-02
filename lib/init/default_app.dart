@@ -1,11 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template/core/http/http.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/generated/i18n.dart';
-import 'package:flutter_template/init/splash.dart';
 import 'package:flutter_template/router/route_map.dart';
+import 'package:flutter_template/router/route_map.gr.dart';
 import 'package:flutter_template/router/router.dart';
 import 'package:flutter_template/utils/provider.dart';
 import 'package:flutter_template/utils/sputils.dart';
@@ -39,9 +40,10 @@ class MyApp extends StatelessWidget {
           primarySwatch: appTheme.themeColor,
           buttonColor: appTheme.themeColor,
         ),
-        home: SplashPage(),
-        onGenerateRoute: XRouter.router.generator,
-        routes: RouteMap.routes,
+        builder: (ctx, _) => ExtendedNavigator<RouterMap>(
+          router: RouterMap(),
+          guards: [AuthGuard()],
+        ),
         locale: localeModel.getLocale(),
         supportedLocales: I18n.delegate.supportedLocales,
         localizationsDelegates: [

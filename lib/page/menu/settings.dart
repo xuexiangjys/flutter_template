@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/generated/i18n.dart';
+import 'package:flutter_template/router/route_map.gr.dart';
 import 'package:flutter_template/router/router.dart';
-
-import 'language.dart';
-import 'theme_color.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -24,7 +22,7 @@ class _SettingPageState extends State<SettingsPage> {
               trailing: Icon(Icons.keyboard_arrow_right),
               contentPadding: EdgeInsets.only(left: 20, right: 10),
               onTap: () {
-                XRouter.gotoWidget(context, ThemeColorPage());
+                XRouter.navigator.pushNamed(Routes.themeColorPage);
               }),
           ListTile(
             leading: Icon(Icons.language),
@@ -32,7 +30,7 @@ class _SettingPageState extends State<SettingsPage> {
             trailing: Icon(Icons.keyboard_arrow_right),
             contentPadding: EdgeInsets.only(left: 20, right: 10),
             onTap: () {
-              XRouter.gotoWidget(context, LanguagePage());
+              XRouter.navigator.pushNamed(Routes.languagePage);
             },
           ),
         ])));

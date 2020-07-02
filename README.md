@@ -34,6 +34,7 @@ flutter run
 > 本项目精选了目前Flutter最实用的几个库，可大大提高开发的效率。
 
 * [flutter_i18n(国际化插件)](https://marketplace.visualstudio.com/items?itemName=esskar.vscode-flutter-i18n-json)
+* [auto_route(自动路由注册插件)](https://pub.dev/packages/auto_route)
 * [cached_network_image (网络缓存图片)](https://pub.dev/packages/cached_network_image)
 * [dio (非常好用的网络请求库)](https://pub.dev/packages/dio)
 * [event_bus (事件工具)](https://pub.dev/packages/event_bus)
@@ -102,3 +103,19 @@ ios修改相对简单，直接使用XCode打开ios目录进行修改即可。如
 ![](https://github.com/xuexiangjys/Resource/blob/master/img/template/ios_1.jpeg)
 
 ![](https://github.com/xuexiangjys/Resource/blob/master/img/template/ios_2.png)
+
+
+## 自动路由注册说明
+
+> 注意,本项目进行自动路由注册的文件是在`lib/router/route_map.dart`进行注册的,自动生成的路由表文件是`lib/router/route_map.gr.dart`.
+
+* 使用[watch]实时动态刷新路由表
+```
+flutter packages pub run build_runner watch
+```
+* 生成一次路由表
+```
+flutter packages pub run build_runner build
+```
+
+

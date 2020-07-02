@@ -5,6 +5,7 @@ import 'package:flutter_template/core/utils/privacy.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/widget/loading_dialog.dart';
 import 'package:flutter_template/generated/i18n.dart';
+import 'package:flutter_template/router/route_map.gr.dart';
 import 'package:flutter_template/router/router.dart';
 import 'package:flutter_template/utils/provider.dart';
 import 'package:flutter_template/utils/sputils.dart';
@@ -47,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(I18n.of(context).register),
                 textColor: Colors.white,
                 onPressed: () {
-                  XRouter.goto(context, '/register');
+                  XRouter.navigator.pushNamed(Routes.registerPage);
                 },
               )
             ],
@@ -180,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
       if (response['errorCode'] == 0) {
         userProfile.nickName = response['data']['nickname'];
         ToastUtils.toast(I18n.of(context).loginSuccess);
-        Navigator.of(context).pushReplacementNamed('/home');
+        XRouter.navigator.pushReplacementNamed(Routes.mainHomePage);
       } else {
         ToastUtils.error(response['errorMsg']);
       }
