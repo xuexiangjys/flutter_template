@@ -9,7 +9,7 @@ Flutter空壳模板工程，已搭建基础框架，实现国际化、主题换�
 
 ## 效果
 
-![效果](https://github.com/xuexiangjys/Resource/blob/master/img/template/flutter_template.gif)
+![flutter_template.gif](https://img.rruu.net/image/5f7dc4e09424b)
 
 ## 运行
 
@@ -69,11 +69,11 @@ git clone https://github.com/xuexiangjys/flutter_template.git
 
 * 修改项目根目录`pubspec.yaml`文件, 修改项目名、描述、版本等信息。
 
-![](https://github.com/xuexiangjys/Resource/blob/master/img/template/flutter_1.png)
+![flutter_1.png](https://img.rruu.net/image/5f7dc4dc3f52d)
 
 【注意】这里修改完`pubspec.yaml`中的`name`属性后，flutter项目的包名将会修改，这里我推荐大家使用全局替换的方式修改比较快。例如我想要修改`name`为`flutter_app`,在VSCode中你可以选择`lib`文件夹之后右击，选择`在文件夹中寻找`, 进行全局替换:
 
-![](https://github.com/xuexiangjys/Resource/blob/master/img/template/flutter_2.png)
+![flutter_2.png](https://img.rruu.net/image/5f7dc4dea38d3)
 
 * 修改`lib/core/http/http.dart`中的网络请求配置，包括：服务器地址、超时、拦截器等设置
 
@@ -88,7 +88,7 @@ git clone https://github.com/xuexiangjys/flutter_template.git
 
 在VSCode中你可以选择`android`文件夹之后右击，选择`在文件夹中寻找`, 进行全局替换。
 
-![](https://github.com/xuexiangjys/Resource/blob/master/img/template/android_1.png)
+![android_1.png](https://img.rruu.net/image/5f7dc4de2ab25)
 
 【注意】修改包名之后，记住需要将存放`MainActivity.kt`类的文件夹名也一并修改，否则将会找不到类。
 
@@ -100,10 +100,9 @@ git clone https://github.com/xuexiangjys/flutter_template.git
 
 ios修改相对简单，直接使用XCode打开ios目录进行修改即可。如下图所示：
 
-![](https://github.com/xuexiangjys/Resource/blob/master/img/template/ios_1.jpeg)
+![ios_1.jpeg](https://img.rruu.net/image/5f7dc4de4a9e3)
 
-![](https://github.com/xuexiangjys/Resource/blob/master/img/template/ios_2.png)
-
+![ios_2.png](https://img.rruu.net/image/5f7dc4dee2d4b)
 
 ## 自动路由注册说明
 
@@ -117,5 +116,17 @@ flutter packages pub run build_runner watch
 ```
 flutter packages pub run build_runner build
 ```
+
+---
+
+## 如果觉得项目还不错，可以考虑打赏一波
+
+> 你的打赏是我维护的动力，我将会列出所有打赏人员的清单在下方作为凭证，打赏前请留下打赏项目的备注！
+
+![alipay.jpeg](https://img.rruu.net/image/5f47eeb8bcdf5) &emsp; ![weixinpay.jpeg](https://img.rruu.net/image/5f47eeb1c8a08)
+
+## 微信公众号
+
+![winxin.jpg](https://img.rruu.net/image/5f47ee9f6b02d)
 
 
