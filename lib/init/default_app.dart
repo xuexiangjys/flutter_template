@@ -17,7 +17,8 @@ class DefaultApp {
   //运行app
   static void run() {
     WidgetsFlutterBinding.ensureInitialized();
-    SPUtils.init().then((value) => runApp(Store.init(MyApp())));
+    SPUtils.init()
+        .then((value) => runApp(Store.init(ToastUtils.init(MyApp()))));
     initApp();
   }
 
@@ -34,13 +35,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer2<AppTheme, LocaleModel>(
         builder: (context, appTheme, localeModel, _) {
-      return ToastUtils.init(MaterialApp(
+      return MaterialApp(
         title: 'Flutter Project',
         theme: ThemeData(
           primarySwatch: appTheme.themeColor,
           buttonColor: appTheme.themeColor,
         ),
-        builder: (ctx, _) => ExtendedNavigator<RouterMap>(
+        builder: ExtendedNavigator<RouterMap>(
           router: RouterMap(),
           guards: [AuthGuard()],
         ),
@@ -66,7 +67,7 @@ class MyApp extends StatelessWidget {
             return supportedLocales.first;
           }
         },
-      ));
+      );
     });
   }
 }

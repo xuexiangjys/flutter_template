@@ -7,14 +7,19 @@ import 'package:flutter_template/router/router.dart';
 class ArticleListItem extends StatelessWidget {
   //文章地址
   final String articleUrl;
+
   //图片地址
   final String imageUrl;
+
   //文章标题
   final String title;
+
   //文章作者
   final String author;
+
   //作者描述
   final String description;
+
   //文章摘要
   final String summary;
 
@@ -33,9 +38,7 @@ class ArticleListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          XRouter.router.navigateTo(context,
-              "/web?url=${Uri.encodeComponent(articleUrl)}&title=${Uri.encodeComponent(title)}",
-              transition: TransitionType.inFromRight);
+          XRouter.goWeb(context, articleUrl, title);
         },
         child: Card(
           clipBehavior: Clip.antiAlias,
@@ -62,7 +65,8 @@ class ArticleListItem extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                       color: Colors.white,
                       child: Column(
                         children: <Widget>[
@@ -113,16 +117,22 @@ class ArticleListItem extends StatelessWidget {
 class ArticleInfo {
   //文章地址
   final String articleUrl;
+
   //图片地址
   final String imageUrl;
+
   //文章标题
   final String title;
+
   //文章作者
   final String author;
+
   //作者描述
   final String description;
+
   //文章摘要
   final String summary;
+
   const ArticleInfo(this.articleUrl, this.imageUrl, this.title, this.summary,
       {this.author = 'xuexiang', this.description = 'Android架构师'});
 }

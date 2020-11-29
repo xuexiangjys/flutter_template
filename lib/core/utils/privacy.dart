@@ -37,9 +37,11 @@ class PrivacyUtils {
                         style: TextStyle(color: Theme.of(context).primaryColor),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            XRouter.router.navigateTo(context,
-                                "/web?url=${Uri.encodeComponent(PRIVACY_URL)}&title=${Uri.encodeComponent(I18n.of(context).privacyName(packageInfo.appName))}",
-                                transition: TransitionType.inFromRight);
+                            XRouter.goWeb(
+                                context,
+                                PRIVACY_URL,
+                                I18n.of(context)
+                                    .privacyName(packageInfo.appName));
                           }),
                     TextSpan(text: I18n.of(context).welcome3),
                   ])),
@@ -51,9 +53,11 @@ class PrivacyUtils {
                         style: TextStyle(color: Theme.of(context).primaryColor),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            XRouter.router.navigateTo(context,
-                                "/web?url=${Uri.encodeComponent(PRIVACY_URL)}&title=${Uri.encodeComponent(I18n.of(context).privacyName(packageInfo.appName))}",
-                                transition: TransitionType.inFromRight);
+                            XRouter.goWeb(
+                                context,
+                                PRIVACY_URL,
+                                I18n.of(context)
+                                    .privacyName(packageInfo.appName));
                           }),
                     TextSpan(text: I18n.of(context).welcome5),
                   ])),

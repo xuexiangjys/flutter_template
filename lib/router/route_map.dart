@@ -15,29 +15,21 @@ import 'package:flutter_template/utils/sputils.dart';
 
 ///页面路由映射表
 @CustomAutoRouter(
+    routes: <AutoRoute>[
+      AutoRoute(page: SplashPage, initial: true),
+      AutoRoute(page: MainHomePage, guards: [AuthGuard]),
+      CustomRoute(page: SponsorPage, path: '/menu/sponsor-page'),
+      CustomRoute(page: SettingsPage, path: '/menu/settings-page'),
+      CustomRoute(page: AboutPage, path: '/menu/about-page'),
+      AutoRoute(page: LoginPage),
+      AutoRoute(page: RegisterPage),
+      AutoRoute(page: ThemeColorPage),
+      AutoRoute(page: LanguagePage)
+    ],
     routesClassName: 'Routes',
     transitionsBuilder: getTransitions,
     durationInMilliseconds: 800)
-class $RouterMap {
-  @initial
-  SplashPage splashPage;
-
-  @GuardedBy([AuthGuard])
-  MainHomePage mainHomePage;
-
-  LoginPage loginPage;
-  RegisterPage registerPage;
-
-  @CustomRoute(name: '/menu/sponsor-page')
-  SponsorPage sponsorPage;
-  @CustomRoute(name: '/menu/settings-page')
-  SettingsPage settingsPage;
-  @CustomRoute(name: '/menu/about-page')
-  AboutPage aboutPage;
-
-  ThemeColorPage themeColorPage;
-  LanguagePage languagePage;
-}
+class $RouterMap {}
 
 /// 认证处理
 class AuthGuard extends RouteGuard {
@@ -46,7 +38,7 @@ class AuthGuard extends RouteGuard {
     if (SPUtils.isLogined()) {
       return true;
     }
-    navigator.pushReplacementNamed(Routes.loginPage);
+    navigator.replace(Routes.loginPage);
     return false;
   }
 }

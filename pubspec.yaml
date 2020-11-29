@@ -22,7 +22,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  auto_route: ^0.5.0
+  auto_route: ^0.6.9
   cached_network_image: ^2.2.0+1
   cookie_jar: ^1.0.1
   cupertino_icons: ^0.1.2
@@ -51,7 +51,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
-  auto_route_generator: ^0.5.0
+  auto_route_generator: ^0.6.9
 
 flutter:
 

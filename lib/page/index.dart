@@ -111,7 +111,7 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                         ],
                     onSelected: (String action) {
-                      XRouter.navigator.pushNamed('/menu/$action-page');
+                      XRouter.push('/menu/$action-page');
                     })
               ],
             ),

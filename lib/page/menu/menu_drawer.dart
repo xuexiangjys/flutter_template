@@ -113,21 +113,21 @@ class MenuDrawer extends StatelessWidget {
                     leading: Icon(Icons.attach_money),
                     title: Text(I18n.of(context).sponsor),
                     onTap: () {
-                      XRouter.navigator.pushNamed(Routes.sponsorPage);
+                      XRouter.push(Routes.sponsorPage);
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.settings),
                     title: Text(I18n.of(context).settings),
                     onTap: () {
-                      XRouter.navigator.pushNamed(Routes.settingsPage);
+                      XRouter.push(Routes.settingsPage);
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.error_outline),
                     title: Text(I18n.of(context).about),
                     onTap: () {
-                      XRouter.navigator.pushNamed(Routes.aboutPage);
+                      XRouter.push(Routes.aboutPage);
                     },
                   ),
                   //退出
@@ -137,7 +137,7 @@ class MenuDrawer extends StatelessWidget {
                     title: Text(I18n.of(context).logout),
                     onTap: () {
                       value.nickName = null;
-                      XRouter.navigator.pushReplacementNamed(Routes.loginPage);
+                      XRouter.replace(Routes.loginPage);
                     },
                   )
                 ],

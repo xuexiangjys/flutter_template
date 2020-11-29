@@ -116,7 +116,10 @@ flutter packages pub run build_runner watch
 ```
 flutter packages pub run build_runner build
 ```
-
+* 清除路由表
+```
+flutter packages pub run build_runner clean
+```
 ---
 
 ## 如果觉得项目还不错，可以考虑打赏一波

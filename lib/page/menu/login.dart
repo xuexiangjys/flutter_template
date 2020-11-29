@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Text(I18n.of(context).register),
                 textColor: Colors.white,
                 onPressed: () {
-                  XRouter.navigator.pushNamed(Routes.registerPage);
+                  XRouter.push(Routes.registerPage);
                 },
               )
             ],
@@ -181,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
       if (response['errorCode'] == 0) {
         userProfile.nickName = response['data']['nickname'];
         ToastUtils.toast(I18n.of(context).loginSuccess);
-        XRouter.navigator.pushReplacementNamed(Routes.mainHomePage);
+        XRouter.replace(Routes.mainHomePage);
       } else {
         ToastUtils.error(response['errorMsg']);
       }

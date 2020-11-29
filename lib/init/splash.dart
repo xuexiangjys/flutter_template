@@ -32,6 +32,6 @@ class _SplashPageState extends State<SplashPage> {
 
   //页面跳转
   void goHomePage() {
-    XRouter.navigator.pushReplacementNamed(Routes.mainHomePage);
+    XRouter.replace(Routes.mainHomePage);
   }
 }

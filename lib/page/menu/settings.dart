@@ -22,7 +22,7 @@ class _SettingPageState extends State<SettingsPage> {
               trailing: Icon(Icons.keyboard_arrow_right),
               contentPadding: EdgeInsets.only(left: 20, right: 10),
               onTap: () {
-                XRouter.navigator.pushNamed(Routes.themeColorPage);
+                XRouter.push(Routes.themeColorPage);
               }),
           ListTile(
             leading: Icon(Icons.language),
@@ -30,7 +30,7 @@ class _SettingPageState extends State<SettingsPage> {
             trailing: Icon(Icons.keyboard_arrow_right),
             contentPadding: EdgeInsets.only(left: 20, right: 10),
             onTap: () {
-              XRouter.navigator.pushNamed(Routes.languagePage);
+              XRouter.push(Routes.languagePage);
             },
           ),
         ])));
