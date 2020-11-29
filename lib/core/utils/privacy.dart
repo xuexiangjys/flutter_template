@@ -1,9 +1,9 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_template/generated/i18n.dart';
 import 'package:flutter_template/router/router.dart';
+
 import 'utils.dart';
 
 //隐私弹窗工具
