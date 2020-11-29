@@ -6,15 +6,16 @@ import 'package:flutter_template/router/route_map.gr.dart';
 
 ///使用fluro进行路由管理
 class XRouter {
-  static Router router;
+
+  static FluroRouter router;
 
   static void init() {
-    router = Router();
+    router = FluroRouter();
     configureRoutes(router);
   }
 
   ///路由配置
-  static void configureRoutes(Router router) {
+  static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = Handler(
         handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       print("route is not find !");

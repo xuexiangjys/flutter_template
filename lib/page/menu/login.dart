@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget buildForm(BuildContext context) {
     return Form(
       key: _formKey, //设置globalKey，用于后面获取FormState
-      autovalidate: false,
+      autovalidateMode: AutovalidateMode.disabled,
       child: Column(
         children: <Widget>[
           Center(

@@ -13,6 +13,7 @@ import 'menu/menu_drawer.dart';
 
 class MainHomePage extends StatefulWidget {
   MainHomePage({Key key}) : super(key: key);
+
   @override
   _MainHomePageState createState() => _MainHomePageState();
 }
@@ -20,17 +21,15 @@ class MainHomePage extends StatefulWidget {
 class _MainHomePageState extends State<MainHomePage> {
   List<BottomNavigationBarItem> getTabs(BuildContext context) => [
         BottomNavigationBarItem(
-            title: Text(I18n.of(context).home), icon: Icon(Icons.home)),
+            label: I18n.of(context).home, icon: Icon(Icons.home)),
         BottomNavigationBarItem(
-            title: Text(I18n.of(context).category), icon: Icon(Icons.list)),
+            label: I18n.of(context).category, icon: Icon(Icons.list)),
         BottomNavigationBarItem(
-            title: Text(I18n.of(context).activity),
-            icon: Icon(Icons.local_activity)),
+            label: I18n.of(context).activity, icon: Icon(Icons.local_activity)),
         BottomNavigationBarItem(
-            title: Text(I18n.of(context).message),
-            icon: Icon(Icons.notifications)),
+            label: I18n.of(context).message, icon: Icon(Icons.notifications)),
         BottomNavigationBarItem(
-            title: Text(I18n.of(context).profile), icon: Icon(Icons.person)),
+            label: I18n.of(context).profile, icon: Icon(Icons.person)),
       ];
 
   List<Widget> getTabWidget(BuildContext context) => [
@@ -63,7 +62,7 @@ class _MainHomePageState extends State<MainHomePage> {
           child: Scaffold(
             key: _scaffoldKey,
             appBar: AppBar(
-              title: tabs[status.tabIndex].title,
+              title: Text(tabs[status.tabIndex].label),
               actions: <Widget>[
                 IconButton(
                     icon: Icon(Icons.security),
