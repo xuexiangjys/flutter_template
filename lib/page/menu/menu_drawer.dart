@@ -35,16 +35,18 @@ class MenuDrawer extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(
+                    Expanded(
+                        child: Text(
                       value.nickName != null
                           ? value.nickName
                           : I18n.of(context).title,
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                         color: Colors.white,
                       ),
-                    )
+                    ))
                   ],
                 ),
               ),
