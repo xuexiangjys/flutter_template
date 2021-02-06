@@ -65,6 +65,10 @@ git clone https://github.com/xuexiangjys/flutter_template.git
 
 3.使用AS或者VSCode打开项目，然后分别修改flutter、Android、ios项目的包名、应用ID以及应用名等信息。
 
+最简单的替换方法就是进行全局替换,搜索关键字`flutter_template`,然后替换你想要的项目包名,如下图所示:
+
+![flutter_replace.png](https://img.rruu.net/image/601e58c1c35c8)
+
 ### Flutter目录修改
 
 * 修改项目根目录`pubspec.yaml`文件, 修改项目名、描述、版本等信息。
