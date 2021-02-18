@@ -14,6 +14,8 @@ Flutter空壳模板工程，已搭建基础框架，实现国际化、主题换�
 
 * [Flutter模板工程入门介绍](https://www.bilibili.com/video/BV1854y1W7hB)
 
+* [Flutter模板工程使用详解](https://www.bilibili.com/video/BV13N411d73X)
+
 * [Flutter系列视频教程](https://space.bilibili.com/483850585/channel/detail?cid=168279)
 
 ## 运行
