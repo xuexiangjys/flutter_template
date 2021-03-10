@@ -17,7 +17,8 @@ class XHttp {
   static init() {
     ///初始化cookie
     PathUtils.getDocumentsDirPath().then((value) {
-      var cookieJar = PersistCookieJar(dir: value + "/.cookies/");
+      var cookieJar =
+          PersistCookieJar(storage: FileStorage(value + "/.cookies/"));
       dio.interceptors.add(CookieManager(cookieJar));
     });
 
@@ -39,19 +40,19 @@ class XHttp {
   ///error统一处理
   static void handleError(DioError e) {
     switch (e.type) {
-      case DioErrorType.CONNECT_TIMEOUT:
+      case DioErrorType.connectTimeout:
         print("连接超时");
         break;
-      case DioErrorType.SEND_TIMEOUT:
+      case DioErrorType.sendTimeout:
         print("请求超时");
         break;
-      case DioErrorType.RECEIVE_TIMEOUT:
+      case DioErrorType.receiveTimeout:
         print("响应超时");
         break;
-      case DioErrorType.RESPONSE:
+      case DioErrorType.response:
         print("出现异常");
         break;
-      case DioErrorType.CANCEL:
+      case DioErrorType.cancel:
         print("请求取消");
         break;
       default:

@@ -20,7 +20,8 @@ Flutter空壳模板工程，已搭建基础框架，实现国际化、主题换�
 
 ## 运行
 
-* 查看一下版本号是否正确
+* 查看一下版本号是否正确, 目前支持的flutter运行环境是`2.0.1`！
+
 ```
 flutter --version
 ```
@@ -131,6 +132,15 @@ flutter packages pub run build_runner build
 ```
 flutter packages pub run build_runner clean
 ```
+
+## 更新插件版本
+
+```
+flutter packages upgrade
+flutter pub outdated
+flutter pub upgrade --major-versions
+```
+
 ---
 
 ## 如果觉得项目还不错，可以考虑打赏一波
