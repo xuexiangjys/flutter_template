@@ -44,9 +44,8 @@ class _LoginPageState extends State<LoginPage> {
             // leading: _leading(context),
             title: Text(I18n.of(context).login),
             actions: <Widget>[
-              FlatButton(
-                child: Text(I18n.of(context).register),
-                textColor: Colors.white,
+              TextButton(
+                child: Text(I18n.of(context).register, style: TextStyle(color: Colors.white)),
                 onPressed: () {
                   XRouter.push(Routes.registerPage);
                 },
@@ -124,11 +123,11 @@ class _LoginPageState extends State<LoginPage> {
             child: Row(
               children: <Widget>[
                 Expanded(child: Builder(builder: (context) {
-                  return RaisedButton(
-                    padding: EdgeInsets.all(15.0),
-                    child: Text(I18n.of(context).login),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Colors.white,
+                  return ElevatedButton(
+                    style: TextButton.styleFrom(
+                        primary: Theme.of(context).primaryColor,
+                        padding: EdgeInsets.all(15.0)),
+                    child: Text(I18n.of(context).login, style: TextStyle(color: Colors.white)),
                     onPressed: () {
                       //由于本widget也是Form的子代widget，所以可以通过下面方式获取FormState
                       if (Form.of(context).validate()) {

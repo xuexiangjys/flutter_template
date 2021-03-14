@@ -110,11 +110,12 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Row(
               children: <Widget>[
                 Expanded(child: Builder(builder: (context) {
-                  return RaisedButton(
-                    padding: EdgeInsets.all(15.0),
-                    child: Text(I18n.of(context).register),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Colors.white,
+                  return ElevatedButton(
+                    style: TextButton.styleFrom(
+                        primary: Theme.of(context).primaryColor,
+                        padding: EdgeInsets.all(15.0)),
+                    child: Text(I18n.of(context).register,
+                        style: TextStyle(color: Colors.white)),
                     onPressed: () {
                       //由于本widget也是Form的子代widget，所以可以通过下面方式获取FormState
                       if (Form.of(context).validate()) {

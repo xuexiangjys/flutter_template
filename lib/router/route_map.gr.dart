@@ -100,7 +100,6 @@ class RouterMap extends RouterBase {
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) => AboutPage(),
         settings: data,
-        transitionsBuilder: TransitionsBuilders.fadeIn,
       );
     },
     LoginPage: (data) {

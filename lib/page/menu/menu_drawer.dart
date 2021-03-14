@@ -138,7 +138,7 @@ class MenuDrawer extends StatelessWidget {
                     leading: Icon(XUIIcons.logout),
                     title: Text(I18n.of(context).logout),
                     onTap: () {
-                      value.nickName = null;
+                      value.nickName = "";
                       XRouter.replace(Routes.loginPage);
                     },
                   )
