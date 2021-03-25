@@ -23,17 +23,16 @@ class XHttp {
     });
 
     //添加拦截器
-    dio.interceptors
-        .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
+    dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
       print("请求之前");
-      return options;
-    }, onResponse: (Response response) {
+      return handler.next(options);
+    }, onResponse: (response, hander) {
       print("响应之前");
-      return response;
-    }, onError: (DioError e) {
+      return hander.next(response);
+    }, onError: (DioError e, hanlder) {
       print("错误之前");
       handleError(e);
-      return e;
+      return hanlder.next(e);
     }));
   }
 
