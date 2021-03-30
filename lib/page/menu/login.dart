@@ -5,6 +5,8 @@ import 'package:flutter_template/core/utils/privacy.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/widget/loading_dialog.dart';
 import 'package:flutter_template/generated/i18n.dart';
+import 'package:flutter_template/model/base_entity.dart';
+import 'package:flutter_template/model/profile.dart';
 import 'package:flutter_template/router/route_map.gr.dart';
 import 'package:flutter_template/router/router.dart';
 import 'package:flutter_template/utils/provider.dart';
@@ -45,7 +47,8 @@ class _LoginPageState extends State<LoginPage> {
             title: Text(I18n.of(context).login),
             actions: <Widget>[
               TextButton(
-                child: Text(I18n.of(context).register, style: TextStyle(color: Colors.white)),
+                child: Text(I18n.of(context).register,
+                    style: TextStyle(color: Colors.white)),
                 onPressed: () {
                   XRouter.push(Routes.registerPage);
                 },
@@ -127,7 +130,8 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextButton.styleFrom(
                         primary: Theme.of(context).primaryColor,
                         padding: EdgeInsets.all(15.0)),
-                    child: Text(I18n.of(context).login, style: TextStyle(color: Colors.white)),
+                    child: Text(I18n.of(context).login,
+                        style: TextStyle(color: Colors.white)),
                     onPressed: () {
                       //由于本widget也是Form的子代widget，所以可以通过下面方式获取FormState
                       if (Form.of(context).validate()) {
@@ -179,8 +183,11 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pop(context);
       if (response['errorCode'] == 0) {
         userProfile.nickName = response['data']['nickname'];
+        BaseEntity<Profile> baseEntity =
+            BaseEntity<Profile>.fromJson(response['data']);
         ToastUtils.toast(I18n.of(context).loginSuccess);
         XRouter.replace(Routes.mainHomePage);
+        XHttp.getLoggerNoStack().d(baseEntity);
       } else {
         ToastUtils.error(response['errorMsg']);
       }

@@ -1,7 +1,14 @@
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:flutter_template/core/interceptor/error_interceptor.dart';
 import 'package:flutter_template/core/utils/path.dart';
+import 'package:flutter_template/model/base_entity.dart';
+import 'package:flutter_template/model/error_entity.dart';
+import 'package:flutter_template/model/list_entity.dart';
+import 'package:flutter_template/utils/error_handler.dart';
+import 'package:flutter_template/utils/req_method.dart';
+import 'package:logger/logger.dart';
 
 class XHttp {
   XHttp._internal();
@@ -9,6 +16,9 @@ class XHttp {
   ///网络请求配置
   static final Dio dio = Dio(BaseOptions(
     baseUrl: "https://www.wanandroid.com",
+    contentType: Headers.jsonContentType,
+    responseType: ResponseType.json,
+    receiveDataWhenStatusError: false,
     connectTimeout: 5000,
     receiveTimeout: 3000,
   ));
@@ -23,16 +33,17 @@ class XHttp {
     });
 
     //添加拦截器
+    dio.interceptors.add(ErrorInterceptor())
     dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
       print("请求之前");
       return handler.next(options);
-    }, onResponse: (response, hander) {
+    }, onResponse: (response, handler) {
       print("响应之前");
-      return hander.next(response);
-    }, onError: (DioError e, hanlder) {
+      return handler.next(response);
+    }, onError: (DioError e, handler) {
       print("错误之前");
       handleError(e);
-      return hanlder.next(e);
+      return handler.next(e);
     }));
   }
 
@@ -96,5 +107,63 @@ class XHttp {
       handleError(e);
     }
     return response.data;
+  }
+
+  static Logger getLogger() {
+    return Logger(printer: PrettyPrinter());
+  }
+
+  static Logger getLoggerNoStack() {
+    return Logger(
+      printer: PrettyPrinter(methodCount: 0),
+    );
+  }
+
+  static Future request<T>(ReqMethod method, String path,
+      {Map<String, Object> params,
+      Function(T) success,
+      Function(ErrorEntity) failure}) async {
+    try {
+      Response response = await dio.request(path,
+          queryParameters: params,
+          options: Options(method: MethodVaule[method]));
+      if (response != null) {
+        BaseEntity baseEntity = BaseEntity<T>.fromJson(response.data);
+        if (baseEntity.code == 0) {
+          success(baseEntity.data);
+        } else {
+          failure(
+              ErrorEntity(code: baseEntity.code, message: baseEntity.message));
+        }
+      } else {
+        failure(ErrorEntity(code: -1, message: "unknown error"));
+      }
+    } on DioError catch (e) {
+      failure(ErrorHandler.handleError(e));
+    }
+  }
+
+  static Future requestList<T>(ReqMethod method, String path,
+      {Map<String, Object> params,
+      Function(List<T>) success,
+      Function(ErrorEntity) failure}) async {
+    try {
+      Response response = await dio.request(path,
+          queryParameters: params,
+          options: Options(method: MethodVaule[method]));
+      if (response != null) {
+        ListEntity<T> listEntity = ListEntity<T>.fromJson(response.data);
+        if (listEntity.code == 0) {
+          success(listEntity.data);
+        } else {
+          failure(
+              ErrorEntity(code: listEntity.code, message: listEntity.message));
+        }
+      } else {
+        failure(ErrorEntity(code: -1, message: "unknown error"));
+      }
+    } on DioError catch (e) {
+      failure(ErrorHandler.handleError(e));
+    }
   }
 }

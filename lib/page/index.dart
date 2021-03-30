@@ -4,6 +4,7 @@ import 'package:flutter_template/core/utils/privacy.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/utils/xupdate.dart';
 import 'package:flutter_template/generated/i18n.dart';
+import 'package:flutter_template/page/home/tab_category.dart';
 import 'package:flutter_template/page/home/tab_home.dart';
 import 'package:flutter_template/router/router.dart';
 import 'package:flutter_template/utils/provider.dart';
@@ -34,7 +35,8 @@ class _MainHomePageState extends State<MainHomePage> {
 
   List<Widget> getTabWidget(BuildContext context) => [
         TabHomePage(),
-        Center(child: Text(I18n.of(context).category)),
+        // Center(child: Text(I18n.of(context).category)),
+        TabCategory(),
         Center(child: Text(I18n.of(context).activity)),
         Center(child: Text(I18n.of(context).message)),
         Center(child: Text(I18n.of(context).profile)),

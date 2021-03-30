@@ -46,6 +46,7 @@ dependencies:
   shared_preferences: ^2.0.3
   share: ^2.0.1
   url_launcher: ^6.0.2
+  logger: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -54,13 +55,12 @@ dev_dependencies:
   auto_route_generator: ^0.6.9
 
 flutter:
-
   uses-material-design: true
 
   assets:
-  - assets/
+    - assets/
 
   fonts:
-    - family: xuifont  #指定一个字体名
+    - family: xuifont #指定一个字体名
       fonts:
         - asset: assets/fonts/iconfont.ttf
