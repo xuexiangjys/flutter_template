@@ -12,7 +12,7 @@ class ListEntity<T> {
   ListEntity({this.code, this.message, this.data});
 
   factory ListEntity.fromJson(json) {
-    List<T> mData = List();
+    List<T> mData = [];
     if (json['data'] != null) {
       (json['data'] as List).forEach((v) {
         mData.add(EntityFactory.generateObject(json)<T>(v));
