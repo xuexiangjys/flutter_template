@@ -33,7 +33,7 @@ class XHttp {
     });
 
     //添加拦截器
-    dio.interceptors.add(ErrorInterceptor())
+    dio.interceptors.add(ErrorInterceptor());
     dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
       print("请求之前");
       return handler.next(options);
