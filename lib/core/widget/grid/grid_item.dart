@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 class GridItem extends StatelessWidget {
   // 文字
   final String title;
+
   // 颜色
   final Color color;
+
   //是否可点击
   final bool enabled;
+
   //点击事件
   final GestureTapCallback onTap;
 
@@ -33,7 +36,9 @@ class GridItem extends StatelessWidget {
                 height: 40,
               ),
             ),
-            Padding(padding: const EdgeInsets.only(top: 10), child: Text(title, style: TextStyle(fontSize: 14)))
+            Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Text(title, style: TextStyle(fontSize: 14)))
           ]),
         ));
   }
@@ -42,5 +47,6 @@ class GridItem extends StatelessWidget {
 class ActionItem {
   final String title;
   final Color color;
+
   const ActionItem(this.title, this.color);
 }

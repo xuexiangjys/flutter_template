@@ -9,6 +9,7 @@ class WebViewPage extends StatefulWidget {
   final String title;
 
   WebViewPage(this.url, this.title);
+
   _WebViewPageState createState() => _WebViewPageState();
 }
 

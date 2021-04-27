@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 // ignore_for_file: non_constant_identifier_names
 // ignore_for_file: camel_case_types
 // ignore_for_file: prefer_single_quotes
@@ -13,6 +14,7 @@ typedef LocaleChangeCallback = void Function(Locale locale);
 
 class I18n implements WidgetsLocalizations {
   const I18n();
+
   static Locale _locale;
   static bool _shouldReload = false;
 
@@ -391,6 +393,7 @@ class _I18n_zh_CN extends I18n {
 class GeneratedLocalizationsDelegate
     extends LocalizationsDelegate<WidgetsLocalizations> {
   const GeneratedLocalizationsDelegate();
+
   List<Locale> get supportedLocales {
     return const <Locale>[Locale("en", "US"), Locale("zh", "CN")];
   }

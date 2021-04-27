@@ -11,7 +11,7 @@ import 'package:flutter_template/page/menu/settings.dart';
 import 'package:flutter_template/page/menu/sponsor.dart';
 import 'package:flutter_template/page/menu/theme_color.dart';
 import 'package:flutter_template/router/route_map.gr.dart';
-import 'package:flutter_template/utils/sputils.dart';
+import 'package:flutter_template/utils/preferences_utils.dart';
 
 ///页面路由映射表
 @CustomAutoRouter(
@@ -35,7 +35,7 @@ class $RouterMap {}
 class AuthGuard extends RouteGuard {
   Future<bool> canNavigate(ExtendedNavigatorState navigator, String routeName,
       Object arguments) async {
-    if (SPUtils.isLogined()) {
+    if (PreferencesUtils.isLogined()) {
       return true;
     }
     navigator.replace(Routes.loginPage);

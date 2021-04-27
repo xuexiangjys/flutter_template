@@ -51,8 +51,8 @@ dependencies:
   ### ---------------------
   retrofit: any
   #logger: any
-#  rxdart: ^0.26.0
-#  json_annotation: 4.0.0
+  #  rxdart: ^0.26.0
+  #  json_annotation: 4.0.0
   gson: ^0.1.4
 
 dev_dependencies:
@@ -73,3 +73,6 @@ flutter:
     - family: xuifont #指定一个字体名
       fonts:
         - asset: assets/fonts/iconfont.ttf
+
+module:
+  androidX: true

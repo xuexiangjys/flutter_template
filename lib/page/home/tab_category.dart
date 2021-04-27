@@ -26,7 +26,6 @@ class _TabCategoryState extends State<TabCategory> {
 
   @override
   Widget build(BuildContext context) {
-    // return Center(child: Text(I18n.of(context).category));
     return Center(child: Text(I18n.of(context).category));
   }
 

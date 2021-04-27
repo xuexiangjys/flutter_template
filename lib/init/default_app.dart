@@ -7,8 +7,8 @@ import 'package:flutter_template/generated/i18n.dart';
 import 'package:flutter_template/router/route_map.dart';
 import 'package:flutter_template/router/route_map.gr.dart';
 import 'package:flutter_template/router/router.dart';
+import 'package:flutter_template/utils/preferences_utils.dart';
 import 'package:flutter_template/utils/provider.dart';
-import 'package:flutter_template/utils/sputils.dart';
 import 'package:provider/provider.dart';
 
 //默认App的启动
@@ -16,7 +16,7 @@ class DefaultApp {
   //运行app
   static void run() {
     WidgetsFlutterBinding.ensureInitialized();
-    SPUtils.init()
+    PreferencesUtils.init()
         .then((value) => runApp(Store.init(ToastUtils.init(MyApp()))));
     initApp();
   }

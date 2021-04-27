@@ -9,8 +9,8 @@ import 'package:flutter_template/model/base_entity.dart';
 import 'package:flutter_template/model/profile.dart';
 import 'package:flutter_template/router/route_map.gr.dart';
 import 'package:flutter_template/router/router.dart';
+import 'package:flutter_template/utils/preferences_utils.dart';
 import 'package:flutter_template/utils/provider.dart';
-import 'package:flutter_template/utils/sputils.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -29,10 +29,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    if (!SPUtils.isAgreePrivacy()) {
+    if (!PreferencesUtils.isAgreePrivacy()) {
       PrivacyUtils.showPrivacyDialog(context, onAgressCallback: () {
         Navigator.of(context).pop();
-        SPUtils.saveIsAgreePrivacy(true);
+        PreferencesUtils.saveIsAgreePrivacy(true);
         ToastUtils.success(I18n.of(context).agreePrivacy);
       });
     }

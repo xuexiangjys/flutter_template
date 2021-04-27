@@ -1,8 +1,8 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-class SPUtils {
+class PreferencesUtils {
   /// 内部构造方法，可避免外部暴露构造函数，进行实例化
-  SPUtils._internal();
+  PreferencesUtils._internal();
 
   static SharedPreferences _spf;
 

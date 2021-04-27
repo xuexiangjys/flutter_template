@@ -8,12 +8,12 @@ import 'package:flutter_template/generated/i18n.dart';
 import 'package:flutter_template/model/project.dart';
 import 'package:flutter_template/utils/req_method.dart';
 
-class TabActivity extends StatefulWidget {
+class TabProfile extends StatefulWidget {
   @override
-  _TabActivityState createState() => _TabActivityState();
+  _TabProfileState createState() => _TabProfileState();
 }
 
-class _TabActivityState extends State<TabActivity> {
+class _TabProfileState extends State<TabProfile> {
   List<Project> projectList = List.empty();
   int passage = 1;
   int counter = 5;
@@ -26,14 +26,16 @@ class _TabActivityState extends State<TabActivity> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text(I18n.of(context).activity));
+    return Center(child: Text(I18n.of(context).profile));
   }
 
   void requestServer() {
-    XHttp.request<Project>(ReqMethod.GET, "project/tree/json", success: (listEntity) {
+    XHttp.request<Project>(ReqMethod.GET, "project/tree/json",
+        success: (listEntity) {
       print("success data = $listEntity");
     }, failure: (errorEntity) {
-      print("failure: code = ${errorEntity.code}, message=${errorEntity.message}");
+      print(
+          "failure: code = ${errorEntity.code}, message=${errorEntity.message}");
     });
   }
 }

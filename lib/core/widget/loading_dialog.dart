@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 class LoadingDialog extends Dialog {
   //loading动画
   final Widget loadingView;
+
   //提示内容
   final String content;
+
   //是否显示提示文字
   final bool showContent;
+
   //圆角大小
   final double radius;
+
   //背景颜色
   final Color backgroundColor;
 

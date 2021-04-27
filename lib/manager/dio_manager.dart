@@ -11,8 +11,10 @@ import 'package:flutter_template/utils/req_method.dart';
 
 class DioManager {
   static final DioManager _shared = DioManager._internal();
+
   factory DioManager() => _shared;
   Dio dio;
+
   DioManager._internal() {
     if (dio == null) {
       BaseOptions options = BaseOptions(

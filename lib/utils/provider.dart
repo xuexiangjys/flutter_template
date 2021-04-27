@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/generated/i18n.dart';
+import 'package:flutter_template/utils/preferences_utils.dart';
 import 'package:provider/provider.dart';
-
-import 'sputils.dart';
 
 //状态管理
 class Store {
@@ -14,8 +13,10 @@ class Store {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AppTheme(getDefaultTheme())),
-        ChangeNotifierProvider.value(value: LocaleModel(SPUtils.getLocale())),
-        ChangeNotifierProvider.value(value: UserProfile(SPUtils.getNickName())),
+        ChangeNotifierProvider.value(
+            value: LocaleModel(PreferencesUtils.getLocale())),
+        ChangeNotifierProvider.value(
+            value: UserProfile(PreferencesUtils.getNickName())),
         ChangeNotifierProvider.value(value: AppStatus(TAB_HOME_INDEX)),
       ],
       child: child,
@@ -39,7 +40,7 @@ class Store {
 }
 
 MaterialColor getDefaultTheme() {
-  return AppTheme.materialColors[SPUtils.getThemeIndex()];
+  return AppTheme.materialColors[PreferencesUtils.getThemeIndex()];
 }
 
 ///主题
@@ -70,7 +71,7 @@ class AppTheme with ChangeNotifier {
 
   void changeColor(int index) {
     _themeColor = materialColors[index];
-    SPUtils.saveThemeIndex(index);
+    PreferencesUtils.saveThemeIndex(index);
     notifyListeners();
   }
 
@@ -98,7 +99,7 @@ class LocaleModel with ChangeNotifier {
     if (_locale != locale) {
       _locale = locale;
       I18n.locale = getLocale();
-      SPUtils.saveLocale(_locale);
+      PreferencesUtils.saveLocale(_locale);
       notifyListeners();
     }
   }
@@ -114,25 +115,28 @@ class UserProfile with ChangeNotifier {
 
   set nickName(String nickName) {
     _nickName = nickName;
-    SPUtils.saveNickName(nickName);
+    PreferencesUtils.saveNickName(nickName);
     notifyListeners();
   }
 }
 
 ///主页
 const int TAB_HOME_INDEX = 0;
+
 ///分类
 const int TAB_CATEGORY_INDEX = 1;
+
 ///活动
 const int TAB_ACTIVITY_INDEX = 2;
+
 ///消息
 const int TAB_MESSAGE_INDEX = 3;
+
 ///我的
 const int TAB_PROFILE_INDEX = 4;
 
 ///应用状态
 class AppStatus with ChangeNotifier {
-  
   //主页tab的索引
   int _tabIndex;
 
@@ -145,4 +149,3 @@ class AppStatus with ChangeNotifier {
     notifyListeners();
   }
 }
-

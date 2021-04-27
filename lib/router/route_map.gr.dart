@@ -57,6 +57,7 @@ class RouterMap extends RouterBase {
     RouteDef(Routes.themeColorPage, page: ThemeColorPage),
     RouteDef(Routes.languagePage, page: LanguagePage),
   ];
+
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
@@ -153,5 +154,6 @@ class RouterMap extends RouterBase {
 /// MainHomePage arguments holder class
 class MainHomePageArguments {
   final Key key;
+
   MainHomePageArguments({this.key});
 }
