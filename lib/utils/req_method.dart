@@ -4,7 +4,7 @@
  */
 enum ReqMethod { GET, POST, DELETE, PUT, UPDATE }
 
-const MethodVaule = {
+const MethodVaules = {
   ReqMethod.GET: "get",
   ReqMethod.POST: "post",
   ReqMethod.DELETE: "delete",
