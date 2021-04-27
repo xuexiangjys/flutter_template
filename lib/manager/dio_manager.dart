@@ -38,7 +38,7 @@ class DioManager {
     try {
       Response response = await dio.request(path,
           queryParameters: params,
-          options: Options(method: MethodVaules[method]));
+          options: Options(method: MethodValues[method]));
       if (response != null) {
         BaseEntity entity = BaseEntity<T>.fromJson(response.data);
         if (entity.code == 0) {
@@ -67,7 +67,7 @@ class DioManager {
     try {
       Response response = await dio.request(path,
           queryParameters: params,
-          options: Options(method: MethodVaules[method]));
+          options: Options(method: MethodValues[method]));
       if (response != null) {
         ListEntity entity = ListEntity<T>.fromJson(response.data);
         if (entity.code == 0) {
@@ -86,32 +86,32 @@ class DioManager {
   // 错误信息
   ErrorEntity createErrorEntity(DioError error) {
     switch (error.type) {
-      case DioErrorType.CANCEL:
+      case DioErrorType.cancel:
         {
           return ErrorEntity(code: -1, message: "请求取消");
         }
         break;
-      case DioErrorType.CONNECT_TIMEOUT:
+      case DioErrorType.connectTimeout:
         {
           return ErrorEntity(code: -1, message: "连接超时");
         }
         break;
-      case DioErrorType.SEND_TIMEOUT:
+      case DioErrorType.sendTimeout:
         {
           return ErrorEntity(code: -1, message: "请求超时");
         }
         break;
-      case DioErrorType.RECEIVE_TIMEOUT:
+      case DioErrorType.receiveTimeout:
         {
           return ErrorEntity(code: -1, message: "响应超时");
         }
         break;
-      case DioErrorType.RESPONSE:
+      case DioErrorType.response:
         {
           try {
             int errCode = error.response.statusCode;
             String errMsg = error.response.statusMessage;
-            return ErrorEntity(code: "$errCode", message: errMsg);
+            return ErrorEntity(code: errCode, message: errMsg);
 //          switch (errCode) {
 //            case 400: {
 //              return ErrorEntity(code: errCode, message: "请求语法错误");

@@ -1,7 +1,6 @@
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cookie_manager/dio_cookie_manager.dart';
-import 'package:flutter_template/core/interceptor/error_interceptor.dart';
 import 'package:flutter_template/core/utils/path.dart';
 import 'package:flutter_template/model/base_entity.dart';
 import 'package:flutter_template/model/error_entity.dart';
@@ -33,7 +32,6 @@ class XHttp {
     });
 
     //添加拦截器
-    dio.interceptors.add(ErrorInterceptor());
     dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
       print("请求之前");
       return handler.next(options);
@@ -126,7 +124,7 @@ class XHttp {
     try {
       Response response = await dio.request(path,
           queryParameters: params,
-          options: Options(method: MethodVaule[method]));
+          options: Options(method: MethodValues[method]));
       if (response != null) {
         BaseEntity baseEntity = BaseEntity<T>.fromJson(response.data);
         if (baseEntity.code == 0) {
@@ -150,7 +148,7 @@ class XHttp {
     try {
       Response response = await dio.request(path,
           queryParameters: params,
-          options: Options(method: MethodVaule[method]));
+          options: Options(method: MethodValues[method]));
       if (response != null) {
         ListEntity<T> listEntity = ListEntity<T>.fromJson(response.data);
         if (listEntity.code == 0) {
