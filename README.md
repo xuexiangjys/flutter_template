@@ -115,22 +115,6 @@ ios修改相对简单，直接使用XCode打开ios目录进行修改即可。如
 
 ![ios_2.png](https://img.rruu.net/image/5f7dc4dee2d4b)
 
-## 自动路由注册说明
-
-> 注意,本项目进行自动路由注册的文件是在`lib/router/route_map.dart`进行注册的,自动生成的路由表文件是`lib/router/route_map.gr.dart`.
-
-* 使用[watch]实时动态刷新路由表
-```
-flutter packages pub run build_runner watch
-```
-* 生成一次路由表
-```
-flutter packages pub run build_runner build
-```
-* 清除路由表
-```
-flutter packages pub run build_runner clean
-```
 
 ## 更新插件版本
 
