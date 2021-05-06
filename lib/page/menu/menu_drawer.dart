@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/utils/xuifont.dart';
 import 'package:flutter_template/generated/i18n.dart';
-import 'package:flutter_template/router/route_map.gr.dart';
-import 'package:flutter_template/router/router.dart';
+import 'package:flutter_template/page/menu/about.dart';
+import 'package:flutter_template/page/menu/login.dart';
+import 'package:flutter_template/page/menu/settings.dart';
+import 'package:flutter_template/page/menu/sponsor.dart';
 import 'package:flutter_template/utils/provider.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class MenuDrawer extends StatelessWidget {
@@ -115,21 +118,21 @@ class MenuDrawer extends StatelessWidget {
                     leading: Icon(Icons.attach_money),
                     title: Text(I18n.of(context).sponsor),
                     onTap: () {
-                      XRouter.push(Routes.sponsorPage);
+                      Get.to(() => SponsorPage());
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.settings),
                     title: Text(I18n.of(context).settings),
                     onTap: () {
-                      XRouter.push(Routes.settingsPage);
+                      Get.to(() => SettingsPage());
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.error_outline),
                     title: Text(I18n.of(context).about),
                     onTap: () {
-                      XRouter.push(Routes.aboutPage);
+                      Get.to(() => AboutPage());
                     },
                   ),
                   //退出
@@ -139,7 +142,7 @@ class MenuDrawer extends StatelessWidget {
                     title: Text(I18n.of(context).logout),
                     onTap: () {
                       value.nickName = "";
-                      XRouter.replace(Routes.loginPage);
+                      Get.offAll(() => LoginPage());
                     },
                   )
                 ],

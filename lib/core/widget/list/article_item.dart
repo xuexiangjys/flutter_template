@@ -37,7 +37,7 @@ class ArticleListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          XRouter.goWeb(context, articleUrl, title);
+          XRouter.goWeb(articleUrl, title);
         },
         child: Card(
           clipBehavior: Clip.antiAlias,

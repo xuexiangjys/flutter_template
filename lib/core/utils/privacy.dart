@@ -38,7 +38,6 @@ class PrivacyUtils {
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             XRouter.goWeb(
-                                context,
                                 PRIVACY_URL,
                                 I18n.of(context)
                                     .privacyName(packageInfo.appName));
@@ -54,7 +53,6 @@ class PrivacyUtils {
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             XRouter.goWeb(
-                                context,
                                 PRIVACY_URL,
                                 I18n.of(context)
                                     .privacyName(packageInfo.appName));

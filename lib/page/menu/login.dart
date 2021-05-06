@@ -5,10 +5,11 @@ import 'package:flutter_template/core/utils/privacy.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/widget/loading_dialog.dart';
 import 'package:flutter_template/generated/i18n.dart';
-import 'package:flutter_template/router/route_map.gr.dart';
-import 'package:flutter_template/router/router.dart';
+import 'package:flutter_template/page/index.dart';
+import 'package:flutter_template/page/menu/register.dart';
 import 'package:flutter_template/utils/provider.dart';
 import 'package:flutter_template/utils/sputils.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -45,9 +46,10 @@ class _LoginPageState extends State<LoginPage> {
             title: Text(I18n.of(context).login),
             actions: <Widget>[
               TextButton(
-                child: Text(I18n.of(context).register, style: TextStyle(color: Colors.white)),
+                child: Text(I18n.of(context).register,
+                    style: TextStyle(color: Colors.white)),
                 onPressed: () {
-                  XRouter.push(Routes.registerPage);
+                  Get.to(() => RegisterPage());
                 },
               )
             ],
@@ -127,7 +129,8 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextButton.styleFrom(
                         primary: Theme.of(context).primaryColor,
                         padding: EdgeInsets.all(15.0)),
-                    child: Text(I18n.of(context).login, style: TextStyle(color: Colors.white)),
+                    child: Text(I18n.of(context).login,
+                        style: TextStyle(color: Colors.white)),
                     onPressed: () {
                       //由于本widget也是Form的子代widget，所以可以通过下面方式获取FormState
                       if (Form.of(context).validate()) {
@@ -180,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
       if (response['errorCode'] == 0) {
         userProfile.nickName = response['data']['nickname'];
         ToastUtils.toast(I18n.of(context).loginSuccess);
-        XRouter.replace(Routes.mainHomePage);
+        Get.off(() => MainHomePage());
       } else {
         ToastUtils.error(response['errorMsg']);
       }
