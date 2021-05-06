@@ -20,7 +20,7 @@ Flutter空壳模板工程，已搭建基础框架，实现国际化、主题换�
 
 ## 运行
 
-* 查看一下版本号是否正确, 要求flutter的版本是`1.x.x`的版本。
+* 查看一下版本号是否正确, 要求flutter的版本是`2.x.x`的版本。
 
 ```
 flutter --version
@@ -42,11 +42,10 @@ flutter run
 > 本项目精选了目前Flutter最实用的几个库，可大大提高开发的效率。
 
 * [flutter_i18n(国际化插件)](https://marketplace.visualstudio.com/items?itemName=esskar.vscode-flutter-i18n-json)
-* [auto_route(自动路由注册插件)](https://pub.dev/packages/auto_route)
+* [GetX(路由、状态管理工具)](https://pub.dev/packages/get)
 * [cached_network_image (网络缓存图片)](https://pub.dev/packages/cached_network_image)
 * [dio (非常好用的网络请求库)](https://pub.dev/packages/dio)
 * [event_bus (事件工具)](https://pub.dev/packages/event_bus)
-* [fluro (页面路由神器)](https://pub.dev/packages/fluro)
 * [flutter_easyrefresh (刷新组件)](https://pub.dev/packages/flutter_easyrefresh)
 * [flutter_webview_plugin (网页加载)](https://pub.dev/packages/flutter_webview_plugin)
 * [flutter_spinkit (loading加载动画)](https://pub.dev/packages/flutter_spinkit)
@@ -116,22 +115,15 @@ ios修改相对简单，直接使用XCode打开ios目录进行修改即可。如
 
 ![ios_2.png](https://img.rruu.net/image/5f7dc4dee2d4b)
 
-## 自动路由注册说明
 
-> 注意,本项目进行自动路由注册的文件是在`lib/router/route_map.dart`进行注册的,自动生成的路由表文件是`lib/router/route_map.gr.dart`.
+## 更新插件版本
 
-* 使用[watch]实时动态刷新路由表
 ```
-flutter packages pub run build_runner watch
+flutter packages upgrade
+flutter pub outdated
+flutter pub upgrade --major-versions
 ```
-* 生成一次路由表
-```
-flutter packages pub run build_runner build
-```
-* 清除路由表
-```
-flutter packages pub run build_runner clean
-```
+
 ---
 
 ## 如果觉得项目还不错，可以考虑打赏一波

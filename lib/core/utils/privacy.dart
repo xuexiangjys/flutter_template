@@ -38,7 +38,6 @@ class PrivacyUtils {
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             XRouter.goWeb(
-                                context,
                                 PRIVACY_URL,
                                 I18n.of(context)
                                     .privacyName(packageInfo.appName));
@@ -54,7 +53,6 @@ class PrivacyUtils {
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             XRouter.goWeb(
-                                context,
                                 PRIVACY_URL,
                                 I18n.of(context)
                                     .privacyName(packageInfo.appName));
@@ -65,7 +63,7 @@ class PrivacyUtils {
               ),
             ),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text(I18n.of(context).disagree),
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -73,7 +71,7 @@ class PrivacyUtils {
                       onAgressCallback: onAgressCallback);
                 },
               ),
-              FlatButton(
+              TextButton(
                 child: Text(I18n.of(context).agree),
                 onPressed: onAgressCallback == null
                     ? () {
@@ -107,14 +105,14 @@ class PrivacyUtils {
               ),
             ),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text(I18n.of(context).stillDisagree),
                 onPressed: () {
                   Navigator.of(context).pop();
                   showPrivacyThird(context, onAgressCallback: onAgressCallback);
                 },
               ),
-              FlatButton(
+              TextButton(
                 child: Text(I18n.of(context).lookAgain),
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -146,7 +144,7 @@ class PrivacyUtils {
               ),
             ),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text(I18n.of(context).exitApp),
                 onPressed: () {
                   //退出程序
@@ -154,7 +152,7 @@ class PrivacyUtils {
                   exit(0);
                 },
               ),
-              FlatButton(
+              TextButton(
                 child: Text(I18n.of(context).lookAgain),
                 onPressed: () {
                   Navigator.of(context).pop();

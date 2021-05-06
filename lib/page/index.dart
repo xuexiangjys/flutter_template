@@ -5,8 +5,8 @@ import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/core/utils/xupdate.dart';
 import 'package:flutter_template/generated/i18n.dart';
 import 'package:flutter_template/page/home/tab_home.dart';
-import 'package:flutter_template/router/router.dart';
 import 'package:flutter_template/utils/provider.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 import 'menu/menu_drawer.dart';
@@ -111,7 +111,7 @@ class _MainHomePageState extends State<MainHomePage> {
                           ),
                         ],
                     onSelected: (String action) {
-                      XRouter.push('/menu/$action-page');
+                      Get.toNamed('/menu/$action-page');
                     })
               ],
             ),
