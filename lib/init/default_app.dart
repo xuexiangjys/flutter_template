@@ -4,7 +4,6 @@ import 'package:flutter_template/core/http/http.dart';
 import 'package:flutter_template/core/utils/toast.dart';
 import 'package:flutter_template/generated/i18n.dart';
 import 'package:flutter_template/router/route_map.dart';
-import 'package:flutter_template/router/router.dart';
 import 'package:flutter_template/utils/provider.dart';
 import 'package:flutter_template/utils/sputils.dart';
 import 'package:get/get.dart';

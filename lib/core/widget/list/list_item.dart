@@ -40,14 +40,8 @@ class ListItem extends StatefulWidget {
 class _ListItemState extends State<ListItem> {
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return TextButton(
       onPressed: widget.onPressed,
-      padding: EdgeInsets.all(0.0),
-      shape: Border.all(
-        color: Colors.transparent,
-        width: 0.0,
-        style: BorderStyle.none,
-      ),
       child: Container(
           height: 60.0,
           width: double.infinity,
