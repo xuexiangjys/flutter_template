@@ -10,6 +10,10 @@ Flutter空壳模板工程，已搭建基础框架，实现国际化、主题换�
 
 ![flutter_template.gif](https://ss.im5i.com/2021/06/14/62BOO.gif)
 
+## Star趋势图
+
+[![Stargazers over time](https://starchart.cc/xuexiangjys/flutter_template.svg)](https://starchart.cc/xuexiangjys/flutter_template)
+
 ## 视频教程
 
 * [Flutter模板工程入门介绍](https://www.bilibili.com/video/BV1854y1W7hB)
