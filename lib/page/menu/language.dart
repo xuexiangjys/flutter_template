@@ -37,7 +37,7 @@ class _LanguagePageState extends State<LanguagePage> {
           children: <Widget>[
             _buildLanguageItem(S.english, "en_US"),
             _buildLanguageItem(S.chinese, "zh_CN"),
-            _buildLanguageItem(S.auto, null),
+            _buildLanguageItem(S.auto, "null"),
           ],
         ));
   }
