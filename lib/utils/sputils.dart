@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter_template/core/utils/locale.dart';
 import 'package:flutter_template/utils/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -7,11 +10,18 @@ class SPUtils {
 
   static SharedPreferences _spf;
 
+  static Locale _systemLocale;
+
   static Future<SharedPreferences> init() async {
     if (_spf == null) {
       _spf = await SharedPreferences.getInstance();
     }
+    _systemLocale = await LocaleUtils.getSystemLocale();
     return _spf;
+  }
+
+  static Locale getSystemLocale() {
+    return _systemLocale;
   }
 
   ///主题

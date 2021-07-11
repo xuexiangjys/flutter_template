@@ -53,8 +53,9 @@ class MyApp extends StatelessWidget {
             return localeModel.getLocale();
           } else {
             //跟随系统
-            if (I18n.delegate.isSupported(_locale)) {
-              return _locale;
+            Locale systemLocale = SPUtils.getSystemLocale();
+            if (I18n.delegate.isSupported(systemLocale)) {
+              return systemLocale;
             }
             return supportedLocales.first;
           }

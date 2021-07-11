@@ -17,6 +17,7 @@ dependencies:
   cookie_jar: ^3.0.0-beta2
   cupertino_icons: ^1.0.2
   date_format: ^2.0.2
+  devicelocale: ^0.4.2
   dio: ^4.0.0-beta7
   dio_cookie_manager: ^2.0.0-beta1
   extended_image: ^4.0.1

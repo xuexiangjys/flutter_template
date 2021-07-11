@@ -1,6 +1,8 @@
+
 import 'package:date_format/date_format.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import 'toast.dart';
 
 ///常用工具类
@@ -36,8 +38,11 @@ class Utils {
     };
   }
 
+  //=============date_format==================//
+
   static String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
   static String formatDateTime(DateTime dateTime) =>
       formatDate(dateTime, [yyyy, '-', mm, '-', dd]);
+
 }
