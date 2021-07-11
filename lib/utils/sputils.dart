@@ -1,3 +1,4 @@
+import 'package:flutter_template/utils/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SPUtils {
@@ -31,7 +32,11 @@ class SPUtils {
   }
 
   static String getLocale() {
-    return _spf.getString('key_locale');
+    String locale = _spf.getString('key_locale');
+    if (locale == null) {
+      locale = LOCALE_FOLLOW_SYSTEM;
+    }
+    return locale;
   }
 
   ///昵称

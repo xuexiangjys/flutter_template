@@ -93,11 +93,11 @@ class _TabHomePageState extends State<TabHomePage> {
 
   //这里是演示，所以写死
   final List<String> urls = [
-    "http://photocdn.sohu.com/tvmobilemvms/20150907/144160323071011277.jpg", //伪装者:胡歌演绎"痞子特工"
-    "http://photocdn.sohu.com/tvmobilemvms/20150907/144158380433341332.jpg", //无心法师:生死离别!月牙遭虐杀
-    "http://photocdn.sohu.com/tvmobilemvms/20150907/144160286644953923.jpg", //花千骨:尊上沦为花千骨
-    "http://photocdn.sohu.com/tvmobilemvms/20150902/144115156939164801.jpg", //综艺饭:胖轩偷看夏天洗澡掀波澜
-    "http://photocdn.sohu.com/tvmobilemvms/20150907/144159406950245847.jpg", //碟中谍4:阿汤哥高塔命悬一线,超越不可能
+    "https://z3.ax1x.com/2021/07/12/WCvW2d.jpg", //伪装者:胡歌演绎"痞子特工"
+    "https://z3.ax1x.com/2021/07/12/WCv7a8.jpg", //无心法师:生死离别!月牙遭虐杀
+    "https://z3.ax1x.com/2021/07/12/WCv4KI.jpg", //花千骨:尊上沦为花千骨
+    "https://z3.ax1x.com/2021/07/12/WCvIqP.jpg", //综艺饭:胖轩偷看夏天洗澡掀波澜
+    "https://z3.ax1x.com/2021/07/12/WCv5rt.jpg", //碟中谍4:阿汤哥高塔命悬一线,超越不可能
   ];
 
   Widget getBannerWidget() {
