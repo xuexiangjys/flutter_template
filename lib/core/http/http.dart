@@ -14,7 +14,7 @@ class XHttp {
   ));
 
   ///初始化dio
-  static init() {
+  static void init() {
     ///初始化cookie
     PathUtils.getDocumentsDirPath().then((value) {
       var cookieJar =
