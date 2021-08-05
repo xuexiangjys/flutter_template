@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
         title: 'Flutter Project',
         theme: ThemeData(
+          brightness: appTheme.brightness,
           primarySwatch: appTheme.themeColor,
           buttonColor: appTheme.themeColor,
         ),

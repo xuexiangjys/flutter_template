@@ -1,3 +1,4 @@
+import 'dart:ui';
 
 import 'package:flutter_template/utils/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,6 +26,18 @@ class SPUtils {
       return _spf.getInt('key_theme_color');
     }
     return 0;
+  }
+
+  ///深色模式
+  static Future<bool> saveBrightness(bool isDark) {
+    return _spf.setBool('key_brightness', isDark);
+  }
+
+  static Brightness getBrightness() {
+    bool isDark = _spf.containsKey('key_brightness')
+        ? _spf.getBool('key_brightness')
+        : false;
+    return isDark ? Brightness.dark : Brightness.light;
   }
 
   ///语言

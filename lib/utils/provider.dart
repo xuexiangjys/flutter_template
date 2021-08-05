@@ -13,7 +13,8 @@ class Store {
     //多个Provider
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => AppTheme(getDefaultTheme())),
+        ChangeNotifierProvider(
+            create: (_) => AppTheme(getDefaultTheme(), getDefaultBrightness())),
         ChangeNotifierProvider.value(value: LocaleModel(SPUtils.getLocale())),
         ChangeNotifierProvider.value(value: UserProfile(SPUtils.getNickName())),
         ChangeNotifierProvider.value(value: AppStatus(TAB_HOME_INDEX)),
@@ -42,6 +43,10 @@ MaterialColor getDefaultTheme() {
   return AppTheme.materialColors[SPUtils.getThemeIndex()];
 }
 
+Brightness getDefaultBrightness() {
+  return SPUtils.getBrightness();
+}
+
 ///主题
 class AppTheme with ChangeNotifier {
   static final List<MaterialColor> materialColors = [
@@ -61,7 +66,9 @@ class AppTheme with ChangeNotifier {
 
   MaterialColor _themeColor;
 
-  AppTheme(this._themeColor);
+  Brightness _brightness;
+
+  AppTheme(this._themeColor, this._brightness);
 
   void setColor(MaterialColor color) {
     _themeColor = color;
@@ -74,7 +81,19 @@ class AppTheme with ChangeNotifier {
     notifyListeners();
   }
 
+  void setBrightness(bool isLight) {
+    notifyListeners();
+  }
+
+  void changeBrightness(bool isDark) {
+    _brightness = isDark ? Brightness.dark : Brightness.light;
+    SPUtils.saveBrightness(isDark);
+    notifyListeners();
+  }
+
   get themeColor => _themeColor;
+
+  get brightness => _brightness;
 }
 
 ///跟随系统
@@ -124,18 +143,21 @@ class UserProfile with ChangeNotifier {
 
 ///主页
 const int TAB_HOME_INDEX = 0;
+
 ///分类
 const int TAB_CATEGORY_INDEX = 1;
+
 ///活动
 const int TAB_ACTIVITY_INDEX = 2;
+
 ///消息
 const int TAB_MESSAGE_INDEX = 3;
+
 ///我的
 const int TAB_PROFILE_INDEX = 4;
 
 ///应用状态
 class AppStatus with ChangeNotifier {
-  
   //主页tab的索引
   int _tabIndex;
 
@@ -148,4 +170,3 @@ class AppStatus with ChangeNotifier {
     notifyListeners();
   }
 }
-
