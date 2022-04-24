@@ -31,6 +31,12 @@ Flutter空壳模板工程，已搭建基础框架，实现国际化、主题换�
 ```
 flutter --version
 ```
+
+这里推荐的flutter版本为`2.0.6`, 下载地址如下:
+
+* [windows_2.0.6-stable](https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_2.0.6-stable.zip)
+* [macos_2.0.6-stable](https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_2.0.6-stable.zip)
+
 **【注意】** 如果你的flutter版本是`1.x.x`版本，那么请将你的flutter版本进行升级，或者使用`flutter/1.0`的分支。
 
 * 运行以下命令查看是否需要安装其它依赖项来完成安装

@@ -13,30 +13,30 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  cached_network_image: ^3.0.0
-  cookie_jar: ^3.0.0-beta2
-  cupertino_icons: ^1.0.2
-  date_format: ^2.0.2
-  devicelocale: ^0.4.2
-  dio: ^4.0.0-beta7
-  dio_cookie_manager: ^2.0.0-beta1
-  extended_image: ^4.0.1
-  event_bus: ^2.0.0
-  flutter_easyrefresh: ^2.1.6
-  flutter_spinkit: ^5.0.0
-  flutter_swiper: ^1.1.6
-  flutter_webview_plugin: ^0.3.11
-  flutter_xupdate: ^2.0.2
-  get: ^4.1.4
-  image_picker_saver: ^0.3.0
-  oktoast: ^3.0.0
-  path_provider: ^2.0.1
-  package_info: ^2.0.0
-  permission_handler: ^7.1.0
-  provider: ^5.0.0
-  shared_preferences: ^2.0.3
-  share: ^2.0.1
-  url_launcher: ^6.0.2
+  cached_network_image: 3.0.0
+  cookie_jar: 3.0.1
+  cupertino_icons: 1.0.2
+  date_format: 2.0.2
+  devicelocale: 0.4.2
+  dio: 4.0.1
+  dio_cookie_manager: 2.0.0
+  extended_image: 4.0.1
+  event_bus: 2.0.0
+  flutter_easyrefresh: 2.1.6
+  flutter_spinkit: 5.0.0
+  flutter_swiper: 1.1.6
+  flutter_webview_plugin: 0.3.11
+  flutter_xupdate: 2.0.2
+  get: 4.1.4
+  image_picker_saver: 0.3.0
+  oktoast: 3.0.0
+  path_provider: 2.0.1
+  package_info: 2.0.0
+  permission_handler: 7.1.0
+  provider: 5.0.0
+  shared_preferences: 2.0.3
+  share: 2.0.1
+  url_launcher: 6.0.2
 
 dev_dependencies:
   flutter_test:
